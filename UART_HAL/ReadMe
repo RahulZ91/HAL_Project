@@ -1,0 +1,17 @@
+What was done:
+
+1. Created the project template using the CubeMX 
+2. Set the UART2 peripheral to asynchronous
+3. Removed the contents of the main.c,it.c,msp.c, main.h and it.h
+4. Added the HAL_Init() and SystemClockConfig() to the main.c
+5. Implemented the weak function HAL_MspInit in stm32f4xx_hal_msp.c
+   5.1 Task 1: Setup the processor priority grouping- NVIC_PRIORITYGROUP_0 then no interrupts can be directly configured
+	             HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+
+  5.2. Task 2 : Enable the required system exceptions of the ARM Cortex M4 system exceptions
+	              // #include "stm32f4xx.h" includes the SCB definition - so make sure to include it
+	              Task was carried out by accessing SCB->SHCSR and setting the bits 17,18 and 19
+
+  5.3. Task 3 : Setup the priority for the system exceptions
+                The function HAL_NVIC_SetPriority() was used
+  
