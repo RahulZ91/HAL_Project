@@ -14,4 +14,7 @@ What was done:
 
   5.3. Task 3 : Setup the priority for the system exceptions
                 The function HAL_NVIC_SetPriority() was used
+
+6. Low level initialisation
+
   
