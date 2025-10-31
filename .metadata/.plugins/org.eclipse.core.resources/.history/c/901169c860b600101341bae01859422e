@@ -47,7 +47,7 @@ void Error_Handler(void)
 	// Configure the LD2 as output
 	GPIO_InitTypeDef GPIO_LED={0}; // prevents garbage values to be initialized to structure members
 	GPIO_LED.Pin=GPIO_PIN_5;
-	GPIO_LED.Pull=GPIO_NOPULL;  // since this is output so PULL UP is not required- PULLUP used only when input
+	GPIO_LED.Pull=GPIO_PULLUP;
 	GPIO_LED.Speed=GPIO_SPEED_FREQ_LOW;
 	GPIO_LED.Mode=GPIO_MODE_OUTPUT_PP;
 
@@ -55,9 +55,9 @@ void Error_Handler(void)
 	HAL_GPIO_Init(GPIOA,&GPIO_LED);
 
 	// Toggle LED
-	while(1)
-	{
-		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		HAL_Delay(500);
-	}
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	};
+
+
+	.
 }
