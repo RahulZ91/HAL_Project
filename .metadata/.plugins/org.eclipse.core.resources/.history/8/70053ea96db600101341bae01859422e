@@ -32,25 +32,9 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 	// Low level init for the USART 2 peripheral
 
 	// task 1 : Enable the clock for the USART2
-	__HAL_RCC_USART2_CLK_ENABLE(); // HAL macro to enable clock
+	__HAL_RCC_USART2_CLK_ENABLE(); // HAL macro to enbale clock
 
 	// task 2 : Pin muxing configuration
-	// we are using PA2 as TX and PA3 as RX in the mode AF7
-	__HAL_RCC_GPIOA_CLK_ENABLE();
-	GPIO_InitTypeDef USART2_TXRX={0};
-	USART2_TXRX.Pin=GPIO_PIN_2;
-	USART2_TXRX.Mode=GPIO_MODE_AF_PP;
-	USART2_TXRX.Pull=GPIO_PULLUP;  // maintains data at high line when no data is TX
-	USART2_TXRX.Speed=GPIO_SPEED_FREQ_LOW; // switching frequency of the signal
-	USART2_TXRX.Alternate=GPIO_AF7_USART2; // found in stm32f4xx_hal_gpio_ex.h under STMF446xx
-	HAL_GPIO_Init(GPIOA, &USART2_TXRX);
-
-	USART2_TXRX.Pin=GPIO_PIN_3;
-	USART2_TXRX.Mode=GPIO_MODE_AF_PP;
-	USART2_TXRX.Pull=GPIO_PULLUP;  // maintains data at high line when no data is TX
-	USART2_TXRX.Speed=GPIO_SPEED_FREQ_LOW; // switching frequency of the signal
-	USART2_TXRX.Alternate=GPIO_AF7_USART2; // found in stm32f4xx_hal_gpio_ex.h under STMF446xx
-	HAL_GPIO_Init(GPIOA, &USART2_TXRX);
 
 	// task 3 : Enable the USART2 IRQ in NVIC
 
