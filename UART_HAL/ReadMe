@@ -17,5 +17,12 @@ What was done:
                 The function HAL_NVIC_SetPriority() was used
 
 6. Low level initialisation
+Note: GPIO peripheral does not have a handle structure
+
+7. High level initialisation
+	7.1 For the UART2 peripheral - create a handle type def for UART2
+	7.2 Create a function for initialise the parameters
+	7.3 Link the structure for the *initialisation - use the base address of the UART2 peripheral
+	7.4 use the init to initialise the different parameters such as baudrate, mode etc
 
   
