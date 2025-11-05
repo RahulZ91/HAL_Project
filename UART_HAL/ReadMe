@@ -18,6 +18,11 @@ What was done:
 
 6. Low level initialisation
 Note: GPIO peripheral does not have a handle structure
+Updated the 
+	6.1. Clock 
+	6.2. GPIO clock and structure
+	6.3. GPIO in alternate mode for USART TX AND RX
+	6.4. Enabling the interrupt with the HAL_NVIC_EnableIRQ
 
 7. High level initialisation
 	7.1 For the UART2 peripheral - create a handle type def for UART2
