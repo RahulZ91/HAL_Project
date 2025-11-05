@@ -5,7 +5,6 @@
 void SystemClockConfig(void);
 void UART2_Init(void);
 void Error_Handler(void);
-uint8_t convert_to_capital(uint8_t);
 
 UART_HandleTypeDef huart2;
 
@@ -16,12 +15,11 @@ int main(void)
 	HAL_Init();
 	SystemClockConfig(); // Application specification and not in HAL
 	UART2_Init();         // High level initialization of UART2 peripheral
-	//HAL_Delay(500);
 	HAL_UART_Transmit(&huart2,(uint8_t *)user_data, strlen(user_data), HAL_MAX_DELAY);
 
 	uint8_t receiveData; // place holder for data buffer in HAL_UART_Receive
 	uint8_t dataBuffer[100]; // data buffer to store the user input
-	uint32_t count=0; // counter to increment byte by byte
+	uint32_t count; // counter to increment byte by byte
 	while(1)
 	{
 		HAL_UART_Receive(&huart2, &receiveData, 1, HAL_MAX_DELAY); // assumes reading 1 byte at a time hence size of 1
@@ -31,10 +29,10 @@ int main(void)
 		}
 		else
 		{
-			dataBuffer[count++]=convert_to_capital(receiveData); // accumulate the bytes in the buffer
+			dataBuffer[count++]=receiveData; // accumulate the bytes in the buffer
 		}
 	}
-	dataBuffer[count++]='\r';
+
 	// Transmit the characters received
 	HAL_UART_Transmit(&huart2, dataBuffer, count, HAL_MAX_DELAY);
 	while(1);
@@ -86,13 +84,4 @@ void Error_Handler(void)
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		HAL_Delay(500);
 	}
-}
-
-uint8_t convert_to_capital(uint8_t received_data)
-{
-	if(received_data >='a' && received_data <= 'z')
-	{
-		received_data-=32;
-	}
-	return received_data;
 }

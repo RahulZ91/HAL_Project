@@ -5,7 +5,6 @@
 void SystemClockConfig(void);
 void UART2_Init(void);
 void Error_Handler(void);
-uint8_t convert_to_capital(uint8_t);
 
 UART_HandleTypeDef huart2;
 
@@ -31,7 +30,7 @@ int main(void)
 		}
 		else
 		{
-			dataBuffer[count++]=convert_to_capital(receiveData); // accumulate the bytes in the buffer
+			dataBuffer[count++]=receiveData; // accumulate the bytes in the buffer
 		}
 	}
 	dataBuffer[count++]='\r';
@@ -86,13 +85,4 @@ void Error_Handler(void)
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		HAL_Delay(500);
 	}
-}
-
-uint8_t convert_to_capital(uint8_t received_data)
-{
-	if(received_data >='a' && received_data <= 'z')
-	{
-		received_data-=32;
-	}
-	return received_data;
 }
