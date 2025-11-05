@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="false"/>
+	<list key="searchhistory">
+		<item value="GPIO_Alternate_function_selection"/>
+		<item value="GPIO_SPEED_FREQ_LOW"/>
+		<item value="GPIO_mode_define"/>
+		<item value="GPIO_pins_define"/>
+		<item value="GPIO_speed_define"/>
+		<item value="PERIPH_BASE"/>
+		<item value="APB1PERIPH_BASE"/>
+		<item value="UART"/>
+		<item value="PreemptPriority"/>
+	</list>
+</section>
