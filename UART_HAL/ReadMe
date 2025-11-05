@@ -39,5 +39,10 @@ For resolve this the Systick_Handler was implemented with the
 HAL_IncTick();
 HAL_SYSTICK_IRQHandler();
 
+9. Used the HAL APIs for transmission and receiving with UART peripheral:
+    9.1 Used the polling API
+	9.2 Created a buffer to take the user input (In tera term sw make sure local echo option in terminal setup is ticked)
+	9.3 Converted the user input to capital letters and transmitted the new message from 9.2
+
 
   
