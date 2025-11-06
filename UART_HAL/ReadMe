@@ -17,7 +17,6 @@ What was done:
                 The function HAL_NVIC_SetPriority() was used
 
 6. Low level initialisation
-Note: GPIO peripheral does not have a handle structure
 Updated the 
 	6.1. Clock 
 	6.2. GPIO clock and structure
@@ -44,5 +43,13 @@ HAL_SYSTICK_IRQHandler();
 	9.2 Created a buffer to take the user input (In tera term sw make sure local echo option in terminal setup is ticked)
 	9.3 Converted the user input to capital letters and transmitted the new message from 9.2
 
+10. Did the same steps till 8 but now added the IRQ Handler for USART
+11. Update the it.c file and added the logic in the callback function when the receive is complete
+
+Note: 
+GPIO peripheral does not have a handle structure
+Removed and set the USB again when no display was on tera term
+Incase of garbage output on Tera term - check baud rate
+Incase of display of only a few bytes - check if the Systick interruot is configured correctly or not
 
   
