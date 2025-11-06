@@ -30,4 +30,19 @@ Updated the
 	7.3 Link the structure for the *initialisation - use the base address of the UART2 peripheral
 	7.4 use the init to initialise the different parameters such as baudrate, mode etc
 
+8. The string to transmit was created the blocking transmit API HAL_UART_Transmit(&huart2,(uint8_t *)user_data, strlen(user_data), HAL_MAX_DELAY);
+   was added to the main.c
+
+On execution:
+Only the first byte was transmitted
+For resolve this the Systick_Handler was implemented with the 
+HAL_IncTick();
+HAL_SYSTICK_IRQHandler();
+
+9. Used the HAL APIs for transmission and receiving with UART peripheral:
+    9.1 Used the polling API
+	9.2 Created a buffer to take the user input (In tera term sw make sure local echo option in terminal setup is ticked)
+	9.3 Converted the user input to capital letters and transmitted the new message from 9.2
+
+
   
