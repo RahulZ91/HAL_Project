@@ -1,0 +1,76 @@
+STM32F446 UART Project
+
+Description:
+A demonstration of UART communication on STM32F446 using both polling and interrupt-driven methods. The project transmits a string to a terminal and echoes user input back, optionally converting it to uppercase.
+
+Features
+
+Initialize USART2 in asynchronous mode.
+
+Send data using HAL_UART_Transmit() (blocking).
+
+Receive data using:
+
+Polling (HAL_UART_Receive())
+
+Interrupt-driven (HAL_UART_Receive_IT()) with a callback.
+
+Proper handling of SysTick for timing and HAL functionality.
+
+User input buffer handling and optional transformation (e.g., to capital letters).
+
+Project Setup
+
+Created project using CubeMX and configured USART2.
+
+Cleared default main.c, stm32f4xx_it.c, stm32f4xx_hal_msp.c, and headers.
+
+Added HAL_Init() and SystemClockConfig() in main.c.
+
+Implemented HAL_MspInit() for:
+
+NVIC priority grouping
+
+Enabling system exceptions (BusFault, MemFault, UsageFault)
+
+Setting priorities
+
+Configured GPIOs for USART2 TX/RX (PA2/PA3, AF7) and enabled USART2 IRQ.
+
+Initialized UART with desired parameters: baud rate, word length, stop bits, parity, mode.
+
+Usage
+
+Connect the board to the PC via USB.
+
+Open Tera Term or any serial terminal.
+
+Baud rate: 115200
+
+Local echo: optional (affects echo behavior)
+
+On reset, the board transmits a message to the terminal.
+
+Type input; it will be echoed back via interrupt-driven UART.
+
+Notes / Lessons Learned
+
+Interrupt-driven UART allows non-blocking continuous reception.
+
+SysTick must be properly configured for HAL timing functions.
+
+Garbage output often comes from baud rate mismatch.
+
+Local echo in terminal may duplicate typed characters.
+
+Physically reconnecting the board may resolve no output issues.
+
+File Structure
+
+main.c – main program, UART transmit/receive logic, callback.
+
+stm32f4xx_it.c – IRQ handlers for SysTick and USART2.
+
+stm32f4xx_hal_msp.c – low-level peripheral initialization (clocks, GPIO, IRQ).
+
+main.h – project headers.
