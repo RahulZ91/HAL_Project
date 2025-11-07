@@ -203,3 +203,6 @@ Project's 'UART_Interrupt' active one is 'UART_Interrupt.ioc' file
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-11-06 10:52:56.228
 !MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-11-07 21:32:33.724
+!MESSAGE Indexed 'ClockSources' (20 sources, 82 headers) in 4.99 sec: 5,050 declarations; 26,644 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0063%)
