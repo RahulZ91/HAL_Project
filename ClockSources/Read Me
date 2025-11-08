@@ -1,0 +1,4 @@
+The folliwing exercise is implemented in this mini project:
+HSE is configured as the clock source with a frequency of 8 MHz
+AHB clock set to 4 MHz
+APB1 and APB2 clock set to 2 MHz
