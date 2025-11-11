@@ -3,6 +3,9 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="USART2_IRQHandler"/>
+		<item value="usart"/>
+		<item value="uart"/>
 		<item value="GPIO_Alternate_function_selection"/>
 		<item value="GPIO_SPEED_FREQ_LOW"/>
 		<item value="GPIO_mode_define"/>

@@ -101,10 +101,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	    }
 	    else
 	    {
-	        //if(count < sizeof(dataBuffer))
+	        // Add to the buffer
 	            dataBuffer[count++] = receivedData;
-	        // optional: echo back typed character immediately
-	        //HAL_UART_Transmit(&huart2, &dataBuffer, 1, HAL_MAX_DELAY);
 	    }
 
 	    // restart reception for next byte

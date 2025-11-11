@@ -1,0 +1,112 @@
+#include<string.h>
+#include "stm32f4xx_hal.h"
+#include "main.h"
+
+#define TRUE  1
+#define FALSE 0
+
+void SystemClockConfig(void);
+void UART2_Init(void);
+void Error_Handler(void);
+uint8_t convert_to_capital(uint8_t);
+
+UART_HandleTypeDef huart2;
+
+char *user_data="Transmit the user data with UART peripheral \r\n";
+
+uint8_t dataBuffer[100];
+uint8_t receivedData;
+uint32_t count=0;
+uint8_t data_reception;
+
+
+int main(void)
+{
+	HAL_Init();
+	SystemClockConfig(); // Application specification and not in HAL
+	UART2_Init();         // High level initialization of UART2 peripheral
+	//HAL_Delay(500);
+	HAL_UART_Transmit(&huart2,(uint8_t *)user_data, strlen(user_data), HAL_MAX_DELAY);
+
+
+	HAL_UART_Receive_IT(&huart2, &receivedData, 1);
+
+	while(1);
+
+	return 0;
+}
+
+void SystemClockConfig(void)
+{
+	// function to configure special clock configuration
+}
+
+void UART2_Init(void)
+{
+	huart2.Instance = USART2;  // base address of the UART2 peripheral - this is the typedef in the handle - always has the base address of peripheral
+	huart2.Init.BaudRate=115200;
+	huart2.Init.WordLength=UART_WORDLENGTH_8B;
+	huart2.Init.StopBits=UART_STOPBITS_1;
+	huart2.Init.Parity=UART_PARITY_NONE;
+	huart2.Init.HwFlowCtl=UART_HWCONTROL_NONE;
+	huart2.Init.Mode=UART_MODE_TX_RX;
+
+	// returns OK,ERROR,BUSY or TIMEOUT
+	// In case of ERROR use the error handler defined
+	if(HAL_UART_Init(&huart2) != HAL_OK )
+	{
+		Error_Handler();
+	}
+}
+
+void Error_Handler(void)
+{
+	// Enable the clock for PORT A
+	__HAL_RCC_GPIOA_CLK_ENABLE(); // enable the clock for GPIO Port A where the User LED LD2 is
+
+	// Configure the LD2 as output
+	GPIO_InitTypeDef GPIO_LED={0}; // prevents garbage values to be initialized to structure members
+	GPIO_LED.Pin=GPIO_PIN_5;
+	GPIO_LED.Pull=GPIO_NOPULL;  // since this is output so PULL UP is not required- PULLUP used only when input
+	GPIO_LED.Speed=GPIO_SPEED_FREQ_LOW;
+	GPIO_LED.Mode=GPIO_MODE_OUTPUT_PP;
+
+	// GPIO_Init
+	HAL_GPIO_Init(GPIOA,&GPIO_LED);
+
+	// Toggle LED
+	while(1)
+	{
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		HAL_Delay(500);
+	}
+}
+
+uint8_t convert_to_capital(uint8_t received_data)
+{
+	if(received_data >='a' && received_data <= 'z')
+	{
+		received_data-=32;
+	}
+	return received_data;
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(receivedData == '\r')
+	    {
+	        dataBuffer[count++] = '\r';
+	        HAL_UART_Transmit(&huart2, dataBuffer, count, HAL_MAX_DELAY);
+	        //count = 0;             // reset for next line
+	    }
+	    else
+	    {
+	        //if(count < sizeof(dataBuffer))
+	            dataBuffer[count++] = receivedData;
+	        // optional: echo back typed character immediately
+	        //HAL_UART_Transmit(&huart2, &dataBuffer, 1, HAL_MAX_DELAY);
+	    }
+
+	    // restart reception for next byte
+	    HAL_UART_Receive_IT(&huart2, &receivedData, 1);
+}

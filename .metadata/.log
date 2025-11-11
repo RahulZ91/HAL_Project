@@ -206,3 +206,18 @@ Project's 'UART_Interrupt' active one is 'UART_Interrupt.ioc' file
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-11-07 21:32:33.724
 !MESSAGE Indexed 'ClockSources' (20 sources, 82 headers) in 4.99 sec: 5,050 declarations; 26,644 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0063%)
+!SESSION 2025-11-10 13:50:53.227 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-11-10 13:54:52.126
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-11-10 13:54:52.127
+!MESSAGE Log4j2 initialized with config file F:\Knowledge_Update\workspace_1.19.0\HAL\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-11-10 13:55:01.872
+!MESSAGE Started RMI Server, listening on port 41337

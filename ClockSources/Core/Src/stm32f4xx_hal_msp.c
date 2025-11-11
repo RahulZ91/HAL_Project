@@ -1,150 +1,61 @@
-/* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file         stm32f4xx_hal_msp.c
-  * @brief        This file provides code for the MSP Initialization
-  *               and de-Initialization codes.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
+  * @brief  Initialize the MSP.
+  * @retval None
   */
-/* USER CODE END Header */
-
-/* Includes ------------------------------------------------------------------*/
-#include "main.h"
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN TD */
-
-/* USER CODE END TD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN Define */
-
-/* USER CODE END Define */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN Macro */
-
-/* USER CODE END Macro */
-
-/* Private variables ---------------------------------------------------------*/
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* External functions --------------------------------------------------------*/
-/* USER CODE BEGIN ExternalFunctions */
-
-/* USER CODE END ExternalFunctions */
-
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
-/**
-  * Initializes the Global MSP.
-  */
+#include "stm32f4xx.h"
 void HAL_MspInit(void)
 {
+  // Customizing the function for my project
+  // 1. task 1: Setup the processor priority grouping- NVIC_PRIORITYGROUP_0 then no interrupts can be directly configured
+	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
 
-  /* USER CODE BEGIN MspInit 0 */
+  // 2. task 2 : Enable the required system exceptions of the ARM Cortex M4 system exceptions
+	// #include "stm32f4xx.h" includes the SCB definition - so make sure to include it
+	SCB->SHCSR &= ~(0x7 << 16); // first clear the bits from location 17,18 and 19 - activated the usage fault, memory fault and bus fault exception
+	SCB->SHCSR |= 0x7<<16; // set the bits 17,18 and 19
 
-  /* USER CODE END MspInit 0 */
-
-  __HAL_RCC_SYSCFG_CLK_ENABLE();
-  __HAL_RCC_PWR_CLK_ENABLE();
-
-  HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_0);
-
-  /* System interrupt init*/
-
-  /* USER CODE BEGIN MspInit 1 */
-
-  /* USER CODE END MspInit 1 */
-}
-
-/**
-  * @brief UART MSP Initialization
-  * This function configures the hardware resources used in this example
-  * @param huart: UART handle pointer
-  * @retval None
-  */
-void HAL_UART_MspInit(UART_HandleTypeDef* huart)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(huart->Instance==USART2)
-  {
-    /* USER CODE BEGIN USART2_MspInit 0 */
-
-    /* USER CODE END USART2_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_USART2_CLK_ENABLE();
-
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    /**USART2 GPIO Configuration
-    PA2     ------> USART2_TX
-    PA3     ------> USART2_RX
-    */
-    GPIO_InitStruct.Pin = USART_TX_Pin|USART_RX_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    /* USER CODE BEGIN USART2_MspInit 1 */
-
-    /* USER CODE END USART2_MspInit 1 */
-
-  }
+  // 3. task 3 : Setup the priority for the system exceptions
+  HAL_NVIC_SetPriority(BusFault_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(MemoryManagement_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(UsageFault_IRQn, 0, 0);
 
 }
 
 /**
-  * @brief UART MSP De-Initialization
-  * This function freeze the hardware resources used in this example
-  * @param huart: UART handle pointer
+  * @brief  UART MSP Init.
+  * @param  huart  Pointer to a UART_HandleTypeDef structure that contains
+  *                the configuration information for the specified UART module.
   * @retval None
   */
-void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
+void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 {
-  if(huart->Instance==USART2)
-  {
-    /* USER CODE BEGIN USART2_MspDeInit 0 */
+	// Low level init for the USART 2 peripheral
 
-    /* USER CODE END USART2_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_USART2_CLK_DISABLE();
+	// task 1 : Enable the clock for the USART2
+	__HAL_RCC_USART2_CLK_ENABLE(); // HAL macro to enable clock
 
-    /**USART2 GPIO Configuration
-    PA2     ------> USART2_TX
-    PA3     ------> USART2_RX
-    */
-    HAL_GPIO_DeInit(GPIOA, USART_TX_Pin|USART_RX_Pin);
+	// task 2 : Pin muxing configuration
+	// we are using PA2 as TX and PA3 as RX in the mode AF7
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	GPIO_InitTypeDef USART2_TXRX={0};
+	USART2_TXRX.Pin=GPIO_PIN_2;
+	USART2_TXRX.Mode=GPIO_MODE_AF_PP;
+	USART2_TXRX.Pull=GPIO_PULLUP;  // maintains data at high line when no data is TX
+	USART2_TXRX.Speed=GPIO_SPEED_FREQ_LOW; // switching frequency of the signal
+	USART2_TXRX.Alternate=GPIO_AF7_USART2; // found in stm32f4xx_hal_gpio_ex.h under STMF446xx
+	HAL_GPIO_Init(GPIOA, &USART2_TXRX);
 
-    /* USER CODE BEGIN USART2_MspDeInit 1 */
+	USART2_TXRX.Pin=GPIO_PIN_3;
+	USART2_TXRX.Mode=GPIO_MODE_AF_PP;
+	USART2_TXRX.Pull=GPIO_PULLUP;  // maintains data at high line when no data is TX
+	USART2_TXRX.Speed=GPIO_SPEED_FREQ_LOW; // switching frequency of the signal
+	USART2_TXRX.Alternate=GPIO_AF7_USART2; // found in stm32f4xx_hal_gpio_ex.h under STMF446xx
+	HAL_GPIO_Init(GPIOA, &USART2_TXRX);
 
-    /* USER CODE END USART2_MspDeInit 1 */
-  }
+	// task 3 : Enable the USART2 IRQ in NVIC
+	HAL_NVIC_EnableIRQ(USART2_IRQn);
+	HAL_NVIC_SetPriority(USART2_IRQn, 15, 0);
+
+	// task 4 : Set the priority
 
 }
-
-/* USER CODE BEGIN 1 */
-
-/* USER CODE END 1 */
