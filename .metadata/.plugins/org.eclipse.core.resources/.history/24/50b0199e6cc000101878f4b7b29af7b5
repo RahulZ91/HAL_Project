@@ -16,7 +16,7 @@ int main(void)
 	RCC_OscInitTypeDef osc_init;
 	RCC_ClkInitTypeDef clk_init;
 
-	char msg[100];
+	uint8_t msg[100];
 
 	HAL_Init();
 	SystemClockConfig(); // Application specification and not in HAL
@@ -45,16 +45,9 @@ int main(void)
 
 	__HAL_RCC_HSI_DISABLE(); // The HSI is disabled since the clock source is now HSE from the above initialization
 
-	// Configuring Systick because of change in clock frequency - source was HSI earlier at 16 MHz but now it is working with HSE as source at 8 MHz
-
-	HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000); // generated a interrupt every 1ms - based on clock frequency of 4MHz
-	HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
-
-	UART2_Init(); // this is called again since the clock frequency has changed and this was based on old clock config and a different baud rate
-
 	memset(msg,0,sizeof(msg));
 	sprintf(msg,"SYSCLK Frequency %ld\r\n",HAL_RCC_GetSysClockFreq());
-	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart2, msg, strlen(msg), HAL_MAX_DELAY);
 	while(1);
 
 	return 0;
@@ -74,7 +67,5 @@ void UART2_Init(void)
 	huart2.Init.Parity=UART_PARITY_NONE;
 	huart2.Init.HwFlowCtl=UART_HWCONTROL_NONE;
 	huart2.Init.Mode=UART_MODE_TX_RX;
-
-	HAL_UART_Init(&huart2); // This was the fix done to get the output on the tera term - the peripheral was fully initialised
 
 }

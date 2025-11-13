@@ -45,7 +45,7 @@ int main(void)
 
 	__HAL_RCC_HSI_DISABLE(); // The HSI is disabled since the clock source is now HSE from the above initialization
 
-	// Configuring Systick because of change in clock frequency - source was HSI earlier at 16 MHz but now it is working with HSE as source at 8 MHz
+	// Configuring Systick
 
 	HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000); // generated a interrupt every 1ms - based on clock frequency of 4MHz
 	HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
@@ -74,7 +74,5 @@ void UART2_Init(void)
 	huart2.Init.Parity=UART_PARITY_NONE;
 	huart2.Init.HwFlowCtl=UART_HWCONTROL_NONE;
 	huart2.Init.Mode=UART_MODE_TX_RX;
-
-	HAL_UART_Init(&huart2); // This was the fix done to get the output on the tera term - the peripheral was fully initialised
 
 }

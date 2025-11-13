@@ -68,13 +68,11 @@ void SystemClockConfig(void)
 void UART2_Init(void)
 {
 	huart2.Instance = USART2;  // base address of the UART2 peripheral - this is the typedef in the handle - always has the base address of peripheral
-	huart2.Init.BaudRate=115200;
+	huart2.Init.BaudRate=9600;
 	huart2.Init.WordLength=UART_WORDLENGTH_8B;
 	huart2.Init.StopBits=UART_STOPBITS_1;
 	huart2.Init.Parity=UART_PARITY_NONE;
 	huart2.Init.HwFlowCtl=UART_HWCONTROL_NONE;
 	huart2.Init.Mode=UART_MODE_TX_RX;
-
-	HAL_UART_Init(&huart2); // This was the fix done to get the output on the tera term - the peripheral was fully initialised
 
 }
