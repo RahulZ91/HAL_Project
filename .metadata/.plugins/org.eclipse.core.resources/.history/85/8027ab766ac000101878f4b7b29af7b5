@@ -1,7 +1,6 @@
 #include<string.h>
 #include "stm32f4xx_hal.h"
 #include "main.h"
-#include<stdio.h>
 
 void SystemClockConfig(void);
 void UART2_Init(void);
@@ -16,8 +15,6 @@ int main(void)
 	RCC_OscInitTypeDef osc_init;
 	RCC_ClkInitTypeDef clk_init;
 
-	uint8_t msg[100];
-
 	HAL_Init();
 	SystemClockConfig(); // Application specification and not in HAL
 	UART2_Init();         // High level initialization of UART2 peripheral
@@ -26,28 +23,13 @@ int main(void)
 	osc_init.HSEState = RCC_HSE_BYPASS;
 	osc_init.OscillatorType=RCC_OSCILLATORTYPE_HSE;
 
-	if(HAL_RCC_OscConfig(&osc_init) !=HAL_OK)  // HSE turned on
+	if(!HAL_RCC_OscConfig(&osc_init)==HAL_OK)  // HSE turned on
 	{
 		while(1);
 	}
 
-	clk_init.ClockType = RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 |RCC_CLOCKTYPE_PCLK2;
-	clk_init.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
-	clk_init.AHBCLKDivider = RCC_SYSCLK_DIV2; // configures the RCC_CFGR register
-	clk_init.APB1CLKDivider = RCC_HCLK_DIV2; // configures the RCC_CFGR register
-	clk_init.APB2CLKDivider = RCC_HCLK_DIV2; // configures the RCC_CFGR register
 
-	// data obtained from ref manual - depends on CPU clock and voltage
-	if(HAL_RCC_ClockConfig(&clk_init,FLASH_LATENCY_0) != HAL_OK)
-	{
-		while(1);
-	}
 
-	__HAL_RCC_HSI_DISABLE(); // The HSI is disabled since the clock source is now HSE from the above initialization
-
-	memset(msg,0,sizeof(msg));
-	sprintf(msg,"SYSCLK Frequency %ld\r\n",HAL_RCC_GetSysClockFreq());
-	HAL_UART_Transmit(&huart2, msg, strlen(msg), HAL_MAX_DELAY);
 	while(1);
 
 	return 0;
