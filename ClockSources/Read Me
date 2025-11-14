@@ -12,3 +12,5 @@ Summary: Overall Takeaways
 3. Changing SYSCLK requires: Updating flash latency if needed. Reconfiguring SysTick. Re-initializing peripherals (like UART). 
 4. HAL functions (HAL_RCC_OscConfig, HAL_RCC_ClockConfig, HAL_UART_Init) abstract the hardware details but must be called in the correct order.
 
+
+
