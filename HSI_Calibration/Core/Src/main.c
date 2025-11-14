@@ -1,0 +1,85 @@
+#include<string.h>
+#include "stm32f4xx_hal.h"
+#include "main.h"
+#include<stdio.h>
+
+void SystemClockConfig(void);
+void UART2_Init(void);
+
+
+UART_HandleTypeDef huart2;
+
+
+
+int main(void)
+{
+	RCC_OscInitTypeDef osc_init;
+	RCC_ClkInitTypeDef clk_init;
+
+	char msg[100];
+
+	HAL_Init();
+	SystemClockConfig(); // Application specification and not in HAL
+	UART2_Init();         // High level initialization of UART2 peripheral
+
+	memset(msg,0,sizeof(msg));
+	sprintf(msg,"SYSCLK Frequency before tuning the calibration %ld\r\n",HAL_RCC_GetSysClockFreq());
+	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+
+	memset(&osc_init,0,sizeof(osc_init));
+	osc_init.HSIState = RCC_HSI_ON;
+	osc_init.OscillatorType=RCC_OSCILLATORTYPE_HSI;
+	osc_init.HSICalibrationValue = 0x1E;
+
+	if(HAL_RCC_OscConfig(&osc_init) !=HAL_OK)  // HSE turned on
+	{
+		while(1);
+	}
+
+	clk_init.ClockType = RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 |RCC_CLOCKTYPE_PCLK2;
+	clk_init.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+	clk_init.AHBCLKDivider = RCC_SYSCLK_DIV2; // configures the RCC_CFGR register
+	clk_init.APB1CLKDivider = RCC_HCLK_DIV2; // configures the RCC_CFGR register
+	clk_init.APB2CLKDivider = RCC_HCLK_DIV2; // configures the RCC_CFGR register
+
+	// data obtained from ref manual - depends on CPU clock and voltage
+	if(HAL_RCC_ClockConfig(&clk_init,FLASH_LATENCY_0) != HAL_OK)
+	{
+		while(1);
+	}
+
+	//__HAL_RCC_HSI_DISABLE(); // The HSI is disabled since the clock source is now HSE from the above initialization
+
+	// Configuring Systick because of change in clock frequency - source was HSI earlier at 16 MHz but now it is working with HSE as source at 8 MHz
+
+	HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000); // generated a interrupt every 1ms - based on clock frequency of 4MHz
+	HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+
+	UART2_Init(); // this is called again since the clock frequency has changed and this was based on old clock config and a different baud rate
+
+	memset(msg,0,sizeof(msg));
+	sprintf(msg,"SYSCLK Frequency after fine tuning %ld\r\n",HAL_RCC_GetSysClockFreq());
+	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	while(1);
+
+	return 0;
+}
+
+void SystemClockConfig(void)
+{
+	// function to configure special clock configuration
+}
+
+void UART2_Init(void)
+{
+	huart2.Instance = USART2;  // base address of the UART2 peripheral - this is the typedef in the handle - always has the base address of peripheral
+	huart2.Init.BaudRate=115200;
+	huart2.Init.WordLength=UART_WORDLENGTH_8B;
+	huart2.Init.StopBits=UART_STOPBITS_1;
+	huart2.Init.Parity=UART_PARITY_NONE;
+	huart2.Init.HwFlowCtl=UART_HWCONTROL_NONE;
+	huart2.Init.Mode=UART_MODE_TX_RX;
+
+	HAL_UART_Init(&huart2); // This was the fix done to get the output on the tera term - the peripheral was fully initialised
+
+}

@@ -236,3 +236,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-11-14 09:10:09.117
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-11-14 14:18:20.099
+!MESSAGE Indexed 'HSI_Calibration' (20 sources, 116 headers) in 6.1 sec: 11,434 declarations; 45,547 references; 7 unresolved inclusions; 1,105 syntax errors; 1,295 unresolved names (2.2%)
