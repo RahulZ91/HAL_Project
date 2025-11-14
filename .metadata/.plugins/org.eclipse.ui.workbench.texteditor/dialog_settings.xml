@@ -3,6 +3,10 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="RCC_System_Clock_Type"/>
+		<item value="RCC_Oscillator_Type"/>
+		<item value="RCC_System_Clock_Source"/>
+		<item value="RCC_HSE_Config "/>
 		<item value="USART2_IRQHandler"/>
 		<item value="usart"/>
 		<item value="uart"/>
@@ -14,6 +18,5 @@
 		<item value="PERIPH_BASE"/>
 		<item value="APB1PERIPH_BASE"/>
 		<item value="UART"/>
-		<item value="PreemptPriority"/>
 	</list>
 </section>

@@ -22,10 +22,6 @@ int main(void)
 	SystemClockConfig(); // Application specification and not in HAL
 	UART2_Init();         // High level initialization of UART2 peripheral
 
-	memset(msg,0,sizeof(msg));
-	sprintf(msg,"SYSCLK Frequency before changing source %ld\r\n",HAL_RCC_GetSysClockFreq());
-	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
-
 	memset(&osc_init,0,sizeof(osc_init));
 	osc_init.HSEState = RCC_HSE_BYPASS;
 	osc_init.OscillatorType=RCC_OSCILLATORTYPE_HSE;
@@ -57,7 +53,7 @@ int main(void)
 	UART2_Init(); // this is called again since the clock frequency has changed and this was based on old clock config and a different baud rate
 
 	memset(msg,0,sizeof(msg));
-	sprintf(msg,"SYSCLK Frequency after changing the source %ld\r\n",HAL_RCC_GetSysClockFreq());
+	sprintf(msg,"SYSCLK Frequency %ld\r\n",HAL_RCC_GetSysClockFreq());
 	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
 	while(1);
 

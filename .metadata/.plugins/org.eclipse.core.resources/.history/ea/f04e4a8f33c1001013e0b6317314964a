@@ -57,7 +57,7 @@ int main(void)
 	UART2_Init(); // this is called again since the clock frequency has changed and this was based on old clock config and a different baud rate
 
 	memset(msg,0,sizeof(msg));
-	sprintf(msg,"SYSCLK Frequency after changing the source %ld\r\n",HAL_RCC_GetSysClockFreq());
+	sprintf(msg,"SYSCLK Frequency %ld\r\n",HAL_RCC_GetSysClockFreq());
 	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
 	while(1);
 
