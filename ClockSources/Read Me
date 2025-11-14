@@ -1,4 +1,14 @@
-The folliwing exercise is implemented in this mini project:
-HSE is configured as the clock source with a frequency of 8 MHz
-AHB clock set to 4 MHz
-APB1 and APB2 clock set to 2 MHz
+The folliwing exercise is implemented in this mini project: HSE is configured as the clock source with a frequency of 8 MHz AHB clock set to 4 MHz APB1 and APB2 clock set to 2 MHz 
+I learnt the following: 
+1. Looking into the clock tree diagram makes it easier to see which pre-scalar works where 
+2. The SysTick timer needs to be reconfigured again after the change of clock source since the number of ticks depend on the clock source and need to be adjusted to generate an interrupt every 1 second 
+3. I was missing the HAL_UART_Init(&huart2) in the UART2_Init - without this the tera term does not show output 
+4. Learnt about the flash latency - incase outout is not there check this in the HAL_RCC_ClockConfig - the info about flash latency can be checked from the reference manual as it depends upon the clock frequncy(CPU Clock) and the voltage used 
+5. __HAL_RCC_HSI_DISABLE() is used to disable the alternate clock source HSI and save power 
+
+Summary: Overall Takeaways 
+1. HSE vs HSI: You can switch clock sources; HSE is external and often more accurate. 
+2. Peripheral clocks (UART, timers) depend on SYSCLK and APB dividers. 
+3. Changing SYSCLK requires: Updating flash latency if needed. Reconfiguring SysTick. Re-initializing peripherals (like UART). 
+4. HAL functions (HAL_RCC_OscConfig, HAL_RCC_ClockConfig, HAL_UART_Init) abstract the hardware details but must be called in the correct order.
+
