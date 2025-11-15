@@ -29,7 +29,7 @@ int main(void)
 	memset(&osc_init,0,sizeof(osc_init));
 	osc_init.HSIState = RCC_HSI_ON;
 	osc_init.OscillatorType=RCC_OSCILLATORTYPE_HSI;
-	osc_init.HSICalibrationValue = 0x0E;
+	osc_init.HSICalibrationValue = 0x1E;
 
 	if(HAL_RCC_OscConfig(&osc_init) !=HAL_OK)  // HSE turned on
 	{

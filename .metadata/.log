@@ -239,3 +239,18 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-11-14 14:18:20.099
 !MESSAGE Indexed 'HSI_Calibration' (20 sources, 116 headers) in 6.1 sec: 11,434 declarations; 45,547 references; 7 unresolved inclusions; 1,105 syntax errors; 1,295 unresolved names (2.2%)
+!SESSION 2025-11-15 23:18:31.249 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-11-15 23:18:51.436
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-11-15 23:18:51.439
+!MESSAGE Log4j2 initialized with config file F:\Knowledge_Update\workspace_1.19.0\HAL\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-11-15 23:19:15.918
+!MESSAGE Started RMI Server, listening on port 41337
