@@ -17,18 +17,17 @@ int main(void)
 {
 	HAL_Init();
 
-	UART2_Init();         // High level initialization of UART2 peripheral
-
 	memset(msg,0,sizeof(msg));
 	sprintf(msg,"HCLK Frequency before changing source %ld\r\n",HAL_RCC_GetHCLKFreq());
 	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
 
 	SystemClockConfig(clock_freq_50MHz); // the clock comes before the communication functions always
 
-	UART2_Init();         // High level initialization of UART2 peripheral
 	memset(msg,0,sizeof(msg));
 	sprintf(msg,"HCLK Frequency after changing source to PLL %ld\r\n",HAL_RCC_GetHCLKFreq());
 	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+
+	UART2_Init();         // High level initialization of UART2 peripheral
 
 
 	while(1);
