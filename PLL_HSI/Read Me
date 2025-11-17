@@ -1,16 +1,25 @@
-The folliwing exercise is implemented in this mini project: HSE is configured as the clock source with a frequency of 8 MHz AHB clock set to 4 MHz APB1 and APB2 clock set to 2 MHz 
-I learnt the following: 
-1. Looking into the clock tree diagram makes it easier to see which pre-scalar works where 
-2. The SysTick timer needs to be reconfigured again after the change of clock source since the number of ticks depend on the clock source and need to be adjusted to generate an interrupt every 1 second 
-3. I was missing the HAL_UART_Init(&huart2) in the UART2_Init - without this the tera term does not show output 
-4. Learnt about the flash latency - incase outout is not there check this in the HAL_RCC_ClockConfig - the info about flash latency can be checked from the reference manual as it depends upon the clock frequncy(CPU Clock) and the voltage used 
-5. __HAL_RCC_HSI_DISABLE() is used to disable the alternate clock source HSI and save power 
+The exercise was implemented:
+Generating a few different clock frequency as output(50MHz, 84MHz and 120 MHz) using the PLL engine with the HSI as the source to the PLL.
 
-Summary: Overall Takeaways 
-1. HSE vs HSI: You can switch clock sources; HSE is external and often more accurate. 
-2. Peripheral clocks (UART, timers) depend on SYSCLK and APB dividers. 
-3. Changing SYSCLK requires: Updating flash latency if needed. Reconfiguring SysTick. Re-initializing peripherals (like UART). 
-4. HAL functions (HAL_RCC_OscConfig, HAL_RCC_ClockConfig, HAL_UART_Init) abstract the hardware details but must be called in the correct order.
+Summary:
+1. A new function was created SystemClockConfig(uint8_t clock_freq) that would do the following
+  1.1 Configure the oscillator and the clock with the source as HSI
+  1.2 Configure the PLL engine - update the dividers M and P and the multiplier N based on clock_freq which is the desired clock frequency 
+  1.3 Updated the HAL functions for the oscillator and clock inits : HAL_RCC_OscConfig(&osc_init) and HAL_RCC_ClockConfig(&clk_init, FLatency)
+  1.4 Updates the Systick timer via the 
+      1.4.1 HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000)- updates the ticks based on the HCLK frequency
+      1.4.2 HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK); - configures the clock source for the systick timer which is the AHB clock
+
+2. In the main.c
+  2.1 Calls the HAL_Init() which picks the definition of the MSP_Init from the stm32f4xx_hal_msp.c
+  2.2 Call the UART2_Init()
+  2.3 Transmit the information about the clock via the UART
+  2.4 Call the SystemClockConfig()
+  2.5 Call the UART2_Init() to configure the peripheral as per the PLL clock frequency from step 2.4
+  2.6 Transmit the information again
+
+3. Setup the tera term with a baud rate as 115200 and check the output
 
 
 
+ 
