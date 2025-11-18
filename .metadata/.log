@@ -384,3 +384,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-11-18 09:14:48.288
 !MESSAGE Indexed 'PLL_HSE' (20 sources, 116 headers) in 9.18 sec: 11,435 declarations; 45,636 references; 7 unresolved inclusions; 1,105 syntax errors; 1,299 unresolved names (2.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-11-18 09:30:36.375
+!MESSAGE Indexed 'PLL_MaxFrequency' (20 sources, 116 headers) in 4.66 sec: 11,435 declarations; 45,639 references; 7 unresolved inclusions; 1,105 syntax errors; 1,298 unresolved names (2.2%)
