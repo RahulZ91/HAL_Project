@@ -366,3 +366,21 @@ Project's 'PLL_HSI' active one is 'PLL_HSI.ioc' file
 !MESSAGE Invalid Input: Must be project's active .ioc file.
 
 Project's 'PLL_HSI' active one is 'PLL_HSI.ioc' file
+!SESSION 2025-11-18 09:12:55.223 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-11-18 09:13:19.298
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-11-18 09:13:19.301
+!MESSAGE Log4j2 initialized with config file F:\Knowledge_Update\workspace_1.19.0\HAL\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-11-18 09:13:36.429
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-11-18 09:14:48.288
+!MESSAGE Indexed 'PLL_HSE' (20 sources, 116 headers) in 9.18 sec: 11,435 declarations; 45,636 references; 7 unresolved inclusions; 1,105 syntax errors; 1,299 unresolved names (2.2%)

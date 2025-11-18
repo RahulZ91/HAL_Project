@@ -10,6 +10,7 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="RCC_PLL_Config"/>
 			<item value="GPIO_Alternate_function_selection"/>
 		</list>
 	</section>
