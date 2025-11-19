@@ -12,5 +12,36 @@ Summary: Overall Takeaways
 3. Changing SYSCLK requires: Updating flash latency if needed. Reconfiguring SysTick. Re-initializing peripherals (like UART). 
 4. HAL functions (HAL_RCC_OscConfig, HAL_RCC_ClockConfig, HAL_UART_Init) abstract the hardware details but must be called in the correct order.
 
+Additional info :
+To run the clock at maximum frequency:
+1. The power controller clock is enabled
+2. Voltage scale is set to 1
+3. Overdrive mode is activated
+
+1️⃣ What OverDrive Mode Is
+OverDrive mode is a special power/performance mode in STM32 MCUs (like STM32F4 series).
+It allows the internal voltage regulator to supply more voltage to the core.
+Why? Because to run the MCU at its maximum allowed frequency, the core needs higher voltage and faster switching.
+
+2️⃣ Why OverDrive Is Needed
+Every MCU has a maximum operating frequency at a given voltage.
+For example, in STM32F4:
+Voltage	Max SYSCLK
+1.2 V	168 MHz
+1.0 V	144 MHz
+To reach 180 MHz, the internal regulator must provide higher current—OverDrive mode enables this safely.
+Without OverDrive, the MCU might not be able to run stably at max frequency.
+
+3️⃣ How It Works
+MCU enters OverDrive mode via specific registers (PWR_CR, PWR_CSR).
+Voltage regulator increases output voltage.
+PLL can then multiply the oscillator frequency to reach maximum SYSCLK.
+After entering OverDrive, the MCU can safely run at its rated max frequency.
+
+4️⃣ Key Points
+OverDrive is not a clock generator. It’s a power boost to allow higher clock speeds.
+Usually only needed when SYSCLK is at the absolute max of the MCU.
+Slightly increases power consumption because of higher voltage
+
 
 
