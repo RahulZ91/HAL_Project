@@ -20,16 +20,3 @@ void HAL_MspInit(void)
   HAL_NVIC_SetPriority(UsageFault_IRQn, 0, 0);
 
 }
-
-void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htimer)
-{
-	// enable the clock for the timer6
-	__HAL_RCC_TIM6_CLK_ENABLE();
-
-	// IRQ setting enable irq for the interrupt -shared between dac and tim6
-	HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
-
-	// Priority setup
-	HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 15, 0);
-
-}
