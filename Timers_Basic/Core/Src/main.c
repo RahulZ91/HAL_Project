@@ -19,6 +19,7 @@ int main(void)
 	// Start the timer
 	HAL_TIM_Base_Start(&htimer6);
 
+
 	while(1)
 	{
 	// now we check the status register which has only the first bit programmable and is set on update,
