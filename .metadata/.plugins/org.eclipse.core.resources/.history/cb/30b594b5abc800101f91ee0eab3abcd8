@@ -19,16 +19,7 @@ int main(void)
 	// Start the timer
 	HAL_TIM_Base_Start(&htimer6);
 
-	while(1)
-	{
-	// now we check the status register which has only the first bit programmable and is set on update,
-	// which occurs when the ARR count reaches the max value
-	while(!(TIM6->SR & TIM_SR_UIF)); // loops till bit is not set ie 100ms have not elapsed
-	// once 100ms elapse the LED is toggles
-	TIM6->SR=0;
-	HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
-	}
-
+	while(1);
 
 	return 0;
 }
@@ -53,7 +44,6 @@ void Timer6_Init(void)
 
 void GPIO_Init(void)
 {
-	__HAL_RCC_GPIOA_CLK_ENABLE();
 	GPIO_InitTypeDef GPIO_set;
 	GPIO_set.Mode=GPIO_MODE_OUTPUT_PP;
 	GPIO_set.Pin=GPIO_PIN_5;

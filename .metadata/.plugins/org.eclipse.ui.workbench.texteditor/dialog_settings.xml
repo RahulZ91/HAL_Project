@@ -3,6 +3,12 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="GPIO_speed_define"/>
+		<item value="GPIO_pins_define"/>
+		<item value="GPIO_mode_define"/>
+		<item value="tim6"/>
+		<item value="HAL_TIM_Base_MspInit"/>
+		<item value="TIM_Counter_Mode"/>
 		<item value="RCC_PLL_Clock_Source"/>
 		<item value="RCC_PLL_Clock_Source "/>
 		<item value="RCC_HSE_Config"/>
@@ -12,11 +18,5 @@
 		<item value="RCC_System_Clock_Type"/>
 		<item value="RCC_HSI_Config"/>
 		<item value="RCC_HSE_Config "/>
-		<item value="USART2_IRQHandler"/>
-		<item value="usart"/>
-		<item value="uart"/>
-		<item value="GPIO_Alternate_function_selection"/>
-		<item value="GPIO_SPEED_FREQ_LOW"/>
-		<item value="GPIO_mode_define"/>
 	</list>
 </section>

@@ -53,7 +53,6 @@ void Timer6_Init(void)
 
 void GPIO_Init(void)
 {
-	__HAL_RCC_GPIOA_CLK_ENABLE();
 	GPIO_InitTypeDef GPIO_set;
 	GPIO_set.Mode=GPIO_MODE_OUTPUT_PP;
 	GPIO_set.Pin=GPIO_PIN_5;
