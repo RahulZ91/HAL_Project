@@ -1,0 +1,2 @@
+The mini project aims to measure the frequency of the applied external signal with the input capture method.
+The value of the capture register is stored via the capture interrupt generated and the difference between the value multiplied by the timer resolution gives the time period of the external signal
