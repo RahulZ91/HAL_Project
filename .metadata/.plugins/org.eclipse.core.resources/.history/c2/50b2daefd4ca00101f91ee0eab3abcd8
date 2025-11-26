@@ -4,6 +4,7 @@
 #include<stdio.h>
 
 void SystemClockConfig(void);
+void Timer2_Init(void);
 void GPIO_Init(void);
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 
@@ -31,6 +32,10 @@ void SystemClockConfig(void)
 	// function to configure special clock configuration
 }
 
+void Timer2_Init(void)
+{
+
+}
 
 void GPIO_Init(void)
 {
