@@ -77,15 +77,14 @@ void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim)
 	// alternate function configuration - to apply the signal to input
 	// configure GPIO to behave as timer 2 channel 1 input or output to be decided by init function
 	__HAL_RCC_GPIOA_CLK_ENABLE();
-	gpio_initstruct.Pin=GPIO_PIN_5;
+	gpio_initstruct.Pin=GPIO_PIN_0;
 	gpio_initstruct.Alternate=GPIO_AF1_TIM2;
 	gpio_initstruct.Mode=GPIO_MODE_AF_PP;
 	gpio_initstruct.Speed=GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(GPIOA, &gpio_initstruct);
 
-
-
-
-
-
+	//NVIC
+	HAL_NVIC_SetPriority(TIM2_IRQn,15,0);
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
 
 }

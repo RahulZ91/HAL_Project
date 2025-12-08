@@ -16,7 +16,7 @@ int main(void)
 	HAL_Init();
 	SystemClockConfig(); // Application specification and not in HAL
 	GPIO_Init();
-	Timer6_Init();
+	TIMER2_Init();
 
 	// Start the timer
 	HAL_TIM_Base_Start_IT(&htimer2);
