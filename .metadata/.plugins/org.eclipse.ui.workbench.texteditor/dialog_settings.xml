@@ -3,6 +3,7 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="TIM2_IRQHandler"/>
 		<item value="GPIO_mode_define"/>
 		<item value="_AF1_"/>
 		<item value="Tim2"/>
@@ -17,6 +18,5 @@
 		<item value="TIM_Counter_Mode"/>
 		<item value="HAL_TIM_PeriodElapsedCallback"/>
 		<item value="GPIO_speed_define"/>
-		<item value="tim6"/>
 	</list>
 </section>

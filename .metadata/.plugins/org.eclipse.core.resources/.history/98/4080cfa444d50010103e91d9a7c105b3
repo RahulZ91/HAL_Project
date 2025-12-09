@@ -73,6 +73,7 @@ void GPIO_Init(void)
 void LSE_Config()
 {
 	RCC_OscInitTypeDef Osc_Init; // same as clock configuration in earlier mini project
+	RCC_ClkInitTypeDef Clk_Init;
 
 	Osc_Init.OscillatorType=RCC_OSCILLATORTYPE_LSE; // set oscillator as LSE
 	Osc_Init.LSEState=RCC_LSE_ON; // set LSE as ON

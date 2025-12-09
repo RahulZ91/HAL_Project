@@ -72,16 +72,5 @@ void GPIO_Init(void)
 
 void LSE_Config()
 {
-	RCC_OscInitTypeDef Osc_Init; // same as clock configuration in earlier mini project
 
-	Osc_Init.OscillatorType=RCC_OSCILLATORTYPE_LSE; // set oscillator as LSE
-	Osc_Init.LSEState=RCC_LSE_ON; // set LSE as ON
-
-	if(HAL_RCC_OscConfig(&Osc_Init) != HAL_OK)
-	{
-		while(1);
-	}
-
-	// initialise the mco
-	HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_LSE, RCC_MCODIV_1);
 }
