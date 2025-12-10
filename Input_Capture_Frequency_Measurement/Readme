@@ -1,2 +1,5 @@
 The mini project aims to measure the frequency of the applied external signal with the input capture method.
 The value of the capture register is stored via the capture interrupt generated and the difference between the value multiplied by the timer resolution gives the time period of the external signal
+
+MCO - Microcontroller Output pin - a way to output the send the clock to a MCU pin
+- HAL function does sets the GPIO pin to alternate mode
