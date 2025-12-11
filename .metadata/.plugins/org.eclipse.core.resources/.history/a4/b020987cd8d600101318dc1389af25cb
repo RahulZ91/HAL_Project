@@ -7,6 +7,7 @@ void SystemClockConfig(void);
 void GPIO_Init(void);
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 void TIMER2_Init(void);
+void LSE_Config(void);
 
 
 TIM_HandleTypeDef htimer2;
@@ -16,7 +17,7 @@ int main(void)
 	HAL_Init();
 	SystemClockConfig(); // Application specification and not in HAL
 	GPIO_Init();
-	Timer6_Init();
+	TIMER2_Init();
 
 	// Start the timer
 	HAL_TIM_Base_Start_IT(&htimer2);
@@ -67,4 +68,20 @@ void GPIO_Init(void)
 	GPIO_set.Pull=GPIO_NOPULL;
 
 	HAL_GPIO_Init(GPIOA, &GPIO_set); // basically set the pin 5 for port A
+}
+
+void LSE_Config()
+{
+	RCC_OscInitTypeDef Osc_Init; // same as clock configuration in earlier mini project
+
+	Osc_Init.OscillatorType=RCC_OSCILLATORTYPE_LSE; // set oscillator as LSE
+	Osc_Init.LSEState=RCC_LSE_ON; // set LSE as ON
+
+	if(HAL_RCC_OscConfig(&Osc_Init) != HAL_OK)
+	{
+		while(1);
+	}
+
+	// initialise the mco
+	HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_LSE, RCC_MCODIV_1);
 }

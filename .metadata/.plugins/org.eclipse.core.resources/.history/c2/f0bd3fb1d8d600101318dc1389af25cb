@@ -22,7 +22,6 @@ int main(void)
 	float tim2_cnt_res=0;
 	float tim2_cnt_freq=0;
 	float user_signal_time=0;
-	float user_signal_freq=0;
 	HAL_Init();
 	SystemClockConfig(); // Application specification and not in HAL
 	GPIO_Init();
@@ -48,7 +47,6 @@ int main(void)
 		tim2_cnt_freq=(HAL_RCC_GetPCLK1Freq() *2)/htimer2.Init.Prescaler;
 		tim2_cnt_res = 1/tim2_cnt_freq; // res is the resolution
 		user_signal_time= capture_difference * tim2_cnt_res;
-		user_signal_freq=1/user_signal_time;
 	}
 
 	return 0;

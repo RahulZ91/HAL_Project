@@ -3,20 +3,20 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
-		<item value="TIM2_IRQHandler"/>
+		<item value="HAL_TIM_IC_CaptureCallback"/>
+		<item value="HAL_TIM_IC"/>
+		<item value="HAL_TIM_Callback"/>
+		<item value="Callback"/>
+		<item value="GPIO_Alternate_function_selection"/>
 		<item value="GPIO_mode_define"/>
+		<item value="GPIO_pins_define"/>
+		<item value="RCC_Oscillator_Type "/>
+		<item value="RCC_LSE_Config"/>
+		<item value="TIM2_IRQHandler"/>
 		<item value="_AF1_"/>
 		<item value="Tim2"/>
 		<item value="GPIO_AF"/>
 		<item value="AF1"/>
 		<item value="AF"/>
-		<item value="GPIO_Alternate_function_selection"/>
-		<item value="GPIO_pins_define"/>
-		<item value="HAL_TIM_IC_MspInit"/>
-		<item value="TIM_Input_Capture_Selection"/>
-		<item value="TIM_Input_Capture_Polarity"/>
-		<item value="TIM_Counter_Mode"/>
-		<item value="HAL_TIM_PeriodElapsedCallback"/>
-		<item value="GPIO_speed_define"/>
 	</list>
 </section>
