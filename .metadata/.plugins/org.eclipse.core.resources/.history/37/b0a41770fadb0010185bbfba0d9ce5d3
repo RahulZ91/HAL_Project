@@ -12,10 +12,10 @@ void SystemClockConfigHSE(uint8_t clock_freq); // for system clock
 TIM_HandleTypeDef htimer2;
 UART_HandleTypeDef huart2;
 
-uint32_t pulse_one_value=25000;// pulse value for generating a square wave of 500 Hz
-uint32_t pulse_two_value=12500;// 1000Hz
-uint32_t pulse_three_value=6250;//2000Hz
-uint32_t pulse_four_value=3125;//4000Hz
+uint32_t pulse_one_value=25000;
+uint32_t pulse_two_value=12500;
+uint32_t pulse_three_value=6250;
+uint32_t pulse_four_value=3125;
 
 int main(void)
 {
@@ -182,33 +182,4 @@ void UART2_Init(void)
 	huart2.Init.Mode=UART_MODE_TX_RX;
 
 	HAL_UART_Init(&huart2); // This was the fix done to get the output on the tera term - the peripheral was fully initialised
-}
-
-
-/**
-  * @brief  Output Compare callback in non-blocking mode
-  * @param  htim TIM OC handle
-  * @retval None
-  */
-void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
-{
-  if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_1)
-  {
-
-  }
-
-  if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_2)
-    {
-
-    }
-
-  if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_3)
-    {
-
-    }
-
-  if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_4)
-    {
-
-    }
 }

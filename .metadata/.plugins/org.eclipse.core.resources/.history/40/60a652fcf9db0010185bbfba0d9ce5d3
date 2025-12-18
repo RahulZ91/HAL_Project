@@ -62,41 +62,27 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 }
 
 /**
-  * @brief  Initializes the TIM Output Compare MSP.
-  * @param  htim TIM Output Compare handle
+  * @brief  Initializes the TIM Input Capture MSP.
+  * @param  htim TIM Input Capture handle
   * @retval None
   */
-void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *htim)
+void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim)
 {
-  // Low level inits
-	GPIO_InitTypeDef tim2oc_ch;
- // Clock inits
+	GPIO_InitTypeDef gpio_initstruct;
+	// enable the clock for timer 2
 	__HAL_RCC_TIM2_CLK_ENABLE();
-	__HAL_RCC_GPIOA_CLK_ENABLE(); // for the port a
-	__HAL_RCC_GPIOB_CLK_ENABLE();// for the port b
-	// configure the GPIO pins for channel 1,2,3 and 4
-	//PA0 - channel 1
-	//PA1 - channel 2
-	//PB10 - channel 3
-	//PB2 - channel 4
-	tim2oc_ch.Pin=GPIO_PIN_0 | GPIO_PIN_1;
-	tim2oc_ch.Mode=GPIO_MODE_AF_PP;
-	tim2oc_ch.Alternate= GPIO_AF1_TIM2;
-	tim2oc_ch.Pull=GPIO_NOPULL;
-	tim2oc_ch.Speed=GPIO_SPEED_FREQ_LOW;
 
-	HAL_GPIO_Init(GPIOA, &tim2oc_ch);
+	// alternate function configuration - to apply the signal to input
+	// configure GPIO to behave as timer 2 channel 1 input or output to be decided by init function
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	gpio_initstruct.Pin=GPIO_PIN_0;
+	gpio_initstruct.Alternate=GPIO_AF1_TIM2;
+	gpio_initstruct.Mode=GPIO_MODE_AF_PP;
+	gpio_initstruct.Speed=GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(GPIOA, &gpio_initstruct);
 
-	tim2oc_ch.Pin=GPIO_PIN_2 | GPIO_PIN_10;
-	tim2oc_ch.Mode=GPIO_MODE_AF_PP;
-	tim2oc_ch.Alternate= GPIO_AF1_TIM2;
-	tim2oc_ch.Pull=GPIO_NOPULL;
-	tim2oc_ch.Speed=GPIO_SPEED_FREQ_LOW;
-
-	HAL_GPIO_Init(GPIOB, &tim2oc_ch);
-
-	//NVIC Setting
-	HAL_NVIC_SetPriority(TIM2_IRQn, 15, 0);
+	//NVIC
+	HAL_NVIC_SetPriority(TIM2_IRQn,15,0);
 	HAL_NVIC_EnableIRQ(TIM2_IRQn);
 
 }
