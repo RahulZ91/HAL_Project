@@ -210,26 +210,26 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
   if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_1)
   {
 	  // Read the value of the compare capture register
-	  ccr_content=HAL_TIM_ReadCapturedValue(htim, HAL_TIM_ACTIVE_CHANNEL_1);
+	  ccr_content=HAL_TIM_ReadCapturedValue(&htim, HAL_TIM_ACTIVE_CHANNEL_1);
 	  // Sets the CCR register value
 	  __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_1,ccr_content+pulse_one_value);
   }
 
   if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_2)
     {
-	  ccr_content=HAL_TIM_ReadCapturedValue(htim, HAL_TIM_ACTIVE_CHANNEL_2);
+	  ccr_content=HAL_TIM_ReadCapturedValue(&htim, HAL_TIM_ACTIVE_CHANNEL_2);
 	  __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_2,ccr_content+pulse_two_value);
     }
 
   if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_3)
     {
-	  ccr_content=HAL_TIM_ReadCapturedValue(htim, HAL_TIM_ACTIVE_CHANNEL_3);
+	  ccr_content=HAL_TIM_ReadCapturedValue(&htim, HAL_TIM_ACTIVE_CHANNEL_3);
 	  __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_3,ccr_content+pulse_three_value);
     }
 
   if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_4)
     {
-	  ccr_content=HAL_TIM_ReadCapturedValue(htim, HAL_TIM_ACTIVE_CHANNEL_4);
+	  ccr_content=HAL_TIM_ReadCapturedValue(&htim, HAL_TIM_ACTIVE_CHANNEL_4);
 	  __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_4,ccr_content+pulse_four_value);
     }
 }
