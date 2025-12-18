@@ -28,6 +28,7 @@ void HAL_MspInit(void)
   *                the configuration information for the specified UART module.
   * @retval None
   */
+/*
 void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 {
 	// Low level init for the USART 2 peripheral
@@ -60,6 +61,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 	// task 4 : Set the priority
 
 }
+*/
 
 /**
   * @brief  Initializes the TIM Input Capture MSP.
