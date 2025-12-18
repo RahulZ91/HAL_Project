@@ -1,14 +1,49 @@
-21:20:47 **** Incremental Build of configuration Debug for project Timer_OC ****
+21:23:13 **** Incremental Build of configuration Debug for project Timer_OC ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c: In function 'HAL_TIM_OC_DelayElapsedCallback':
+../Core/Src/main.c:213:49: warning: passing argument 1 of 'HAL_TIM_ReadCapturedValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  213 |           ccr_content=HAL_TIM_ReadCapturedValue(&htim, HAL_TIM_ACTIVE_CHANNEL_1);
+      |                                                 ^~~~~
+      |                                                 |
+      |                                                 TIM_HandleTypeDef **
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Src/main.c:2:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:2063:61: note: expected 'const TIM_HandleTypeDef *' but argument is of type 'TIM_HandleTypeDef **'
+ 2063 | uint32_t HAL_TIM_ReadCapturedValue(const TIM_HandleTypeDef *htim, uint32_t Channel);
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:220:49: warning: passing argument 1 of 'HAL_TIM_ReadCapturedValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  220 |           ccr_content=HAL_TIM_ReadCapturedValue(&htim, HAL_TIM_ACTIVE_CHANNEL_2);
+      |                                                 ^~~~~
+      |                                                 |
+      |                                                 TIM_HandleTypeDef **
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:2063:61: note: expected 'const TIM_HandleTypeDef *' but argument is of type 'TIM_HandleTypeDef **'
+ 2063 | uint32_t HAL_TIM_ReadCapturedValue(const TIM_HandleTypeDef *htim, uint32_t Channel);
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:226:49: warning: passing argument 1 of 'HAL_TIM_ReadCapturedValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  226 |           ccr_content=HAL_TIM_ReadCapturedValue(&htim, HAL_TIM_ACTIVE_CHANNEL_3);
+      |                                                 ^~~~~
+      |                                                 |
+      |                                                 TIM_HandleTypeDef **
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:2063:61: note: expected 'const TIM_HandleTypeDef *' but argument is of type 'TIM_HandleTypeDef **'
+ 2063 | uint32_t HAL_TIM_ReadCapturedValue(const TIM_HandleTypeDef *htim, uint32_t Channel);
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:232:49: warning: passing argument 1 of 'HAL_TIM_ReadCapturedValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  232 |           ccr_content=HAL_TIM_ReadCapturedValue(&htim, HAL_TIM_ACTIVE_CHANNEL_4);
+      |                                                 ^~~~~
+      |                                                 |
+      |                                                 TIM_HandleTypeDef **
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:2063:61: note: expected 'const TIM_HandleTypeDef *' but argument is of type 'TIM_HandleTypeDef **'
+ 2063 | uint32_t HAL_TIM_ReadCapturedValue(const TIM_HandleTypeDef *htim, uint32_t Channel);
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
 arm-none-eabi-gcc -o "Timer_OC.elf" @"objects.list"   -mcpu=cortex-m4 -T"F:\Knowledge_Update\workspace_1.19.0\HAL\Timer_OC\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Timer_OC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Timer_OC.elf
  
 arm-none-eabi-size  Timer_OC.elf 
 arm-none-eabi-objdump -h -S Timer_OC.elf  > "Timer_OC.list"
    text	   data	    bss	    dec	    hex	filename
-  12008	     28	   1716	  13752	   35b8	Timer_OC.elf
+  12016	     28	   1716	  13760	   35c0	Timer_OC.elf
 Finished building: default.size.stdout
  
 Finished building: Timer_OC.list
