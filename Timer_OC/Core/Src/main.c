@@ -24,7 +24,22 @@ int main(void)
 	GPIO_Init();
 	UART2_Init();
 	TIMER2_Init();
-
+	if(HAL_TIM_OC_Start_IT(&htimer2, TIM_CHANNEL_1) !=HAL_OK)
+	{
+		while(1);
+	}
+	if(HAL_TIM_OC_Start_IT(&htimer2, TIM_CHANNEL_2) !=HAL_OK)
+	{
+		while(1);
+	}
+	if(HAL_TIM_OC_Start_IT(&htimer2, TIM_CHANNEL_3) !=HAL_OK)
+	{
+		while(1);
+	}
+	if(HAL_TIM_OC_Start_IT(&htimer2, TIM_CHANNEL_4) !=HAL_OK)
+	{
+		while(1);
+	}
 	while(1);
 
 	return 0;
@@ -183,7 +198,7 @@ void UART2_Init(void)
 
 	HAL_UART_Init(&huart2); // This was the fix done to get the output on the tera term - the peripheral was fully initialised
 }
-
+uint32_t ccr_content;
 
 /**
   * @brief  Output Compare callback in non-blocking mode
@@ -194,21 +209,27 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_1)
   {
-
+	  // Read the value of the compare capture register
+	  ccr_content=HAL_TIM_ReadCapturedValue(htim, HAL_TIM_ACTIVE_CHANNEL_1);
+	  // Sets the CCR register value
+	  __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_1,ccr_content+pulse_one_value);
   }
 
   if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_2)
     {
-
+	  ccr_content=HAL_TIM_ReadCapturedValue(htim, HAL_TIM_ACTIVE_CHANNEL_2);
+	  __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_2,ccr_content+pulse_two_value);
     }
 
   if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_3)
     {
-
+	  ccr_content=HAL_TIM_ReadCapturedValue(htim, HAL_TIM_ACTIVE_CHANNEL_3);
+	  __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_3,ccr_content+pulse_three_value);
     }
 
   if(htim->Channel==HAL_TIM_ACTIVE_CHANNEL_4)
     {
-
+	  ccr_content=HAL_TIM_ReadCapturedValue(htim, HAL_TIM_ACTIVE_CHANNEL_4);
+	  __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_4,ccr_content+pulse_four_value);
     }
 }

@@ -1,0 +1,7 @@
+../Core/Src/main.c:20:5:main	5
+../Core/Src/main.c:48:6:SystemClockConfig	1
+../Core/Src/main.c:53:6:TIMER2_Init	6
+../Core/Src/main.c:94:6:GPIO_Init	1
+../Core/Src/main.c:106:6:SystemClockConfigHSE	7
+../Core/Src/main.c:189:6:UART2_Init	1
+../Core/Src/main.c:208:6:HAL_TIM_OC_DelayElapsedCallback	5
