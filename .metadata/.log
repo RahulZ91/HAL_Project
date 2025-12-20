@@ -2103,3 +2103,6 @@ C Model Exception: C Model Status [Element main.c does not exist.]
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
 !SUBENTRY 1 org.eclipse.cdt.core 4 969 2025-12-18 10:01:42.168
 !MESSAGE Element main.c does not exist.
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-12-19 20:19:16.029
+!MESSAGE Indexed 'PWM_Generation' (20 sources, 82 headers) in 5.51 sec: 5,050 declarations; 26,644 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0063%)
