@@ -1,14 +1,42 @@
-14:46:19 **** Incremental Build of configuration Debug for project PWM_Generation ****
+15:54:06 **** Incremental Build of configuration Debug for project PWM_External_LED ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "PWM_Generation.elf" @"objects.list"   -mcpu=cortex-m4 -T"F:\Knowledge_Update\workspace_1.19.0\HAL\PWM_Generation\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PWM_Generation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PWM_Generation.elf
+arm-none-eabi-gcc -o "PWM_External_LED.elf" @"objects.list"   -mcpu=cortex-m4 -T"F:\Knowledge_Update\workspace_1.19.0\HAL\PWM_External_LED\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PWM_External_LED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PWM_External_LED.elf
  
-arm-none-eabi-size  PWM_Generation.elf 
-arm-none-eabi-objdump -h -S PWM_Generation.elf  > "PWM_Generation.list"
+arm-none-eabi-size  PWM_External_LED.elf 
+arm-none-eabi-objdump -h -S PWM_External_LED.elf  > "PWM_External_LED.list"
    text	   data	    bss	    dec	    hex	filename
-  13564	     28	   1716	  15308	   3bcc	PWM_Generation.elf
+  13260	     12	   1716	  14988	   3a8c	PWM_External_LED.elf
 Finished building: default.size.stdout
  
-Finished building: PWM_Generation.list
+Finished building: PWM_External_LED.list
+ 
+15:54:29 **** Incremental Build of configuration Debug for project PWM_External_LED ****
+make -j8 all 
+arm-none-eabi-size  PWM_External_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13260	     12	   1716	  14988	   3a8c	PWM_External_LED.elf
+Finished building: default.size.stdout
+ 
+15:55:19 **** Incremental Build of configuration Debug for project PWM_External_LED ****
+make -j8 all 
+arm-none-eabi-size  PWM_External_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13260	     12	   1716	  14988	   3a8c	PWM_External_LED.elf
+Finished building: default.size.stdout
+ 
+15:55:44 **** Incremental Build of configuration Debug for project PWM_External_LED ****
+make -j8 all 
+arm-none-eabi-size  PWM_External_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13260	     12	   1716	  14988	   3a8c	PWM_External_LED.elf
+Finished building: default.size.stdout
+ 
+15:56:11 **** Incremental Build of configuration Debug for project PWM_External_LED ****
+make -j8 all 
+arm-none-eabi-size  PWM_External_LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13260	     12	   1716	  14988	   3a8c	PWM_External_LED.elf
+Finished building: default.size.stdout
  
