@@ -65,7 +65,6 @@ void TIMER2_Init(void)
 		while(1);
 	}
 
-	memset(&tim2_pwm_config)=0; // sets all the members of the structure to 0 to avoid garbage values
 	// Configure the PWM
 	tim2_pwm_config.OCMode=TIM_OCMODE_PWM1;
 	tim2_pwm_config.OCPolarity=TIM_OCPOLARITY_HIGH; // signal high as long as CCR value less than Pulse value
