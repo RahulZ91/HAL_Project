@@ -2133,3 +2133,21 @@ C Model Exception: C Model Status [Element main.c does not exist.]
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-20 15:45:50.967
 !MESSAGE Existing sessions are:
+!SESSION 2025-12-21 21:23:17.363 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-12-21 21:23:38.185
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-12-21 21:23:38.187
+!MESSAGE Log4j2 initialized with config file F:\Knowledge_Update\workspace_1.19.0\HAL\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-12-21 21:23:56.628
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-12-21 21:27:29.690
+!MESSAGE Indexed 'Orientation and LED Control with MPU6050 and STM32' (20 sources, 82 headers) in 5.08 sec: 5,050 declarations; 26,644 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0063%)
