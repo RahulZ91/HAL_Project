@@ -75,7 +75,7 @@ void GPIO_Init(void)
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	GPIO_InitTypeDef GPIO_set;
 	GPIO_set.Mode=GPIO_MODE_AF_PP;
-	GPIO_set.Pin=GPIO_PIN_5;
+	GPIO_set.Pin=GPIO_PIN_0;
 	GPIO_set.Speed=GPIO_SPEED_FREQ_LOW;
 	GPIO_set.Pull=GPIO_NOPULL;
 

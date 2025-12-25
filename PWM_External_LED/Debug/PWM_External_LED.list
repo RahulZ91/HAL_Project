@@ -1047,8 +1047,8 @@ void GPIO_Init(void)
 	GPIO_set.Mode=GPIO_MODE_AF_PP;
  8000c52:	2302      	movs	r3, #2
  8000c54:	60bb      	str	r3, [r7, #8]
-	GPIO_set.Pin=GPIO_PIN_5;
- 8000c56:	2320      	movs	r3, #32
+	GPIO_set.Pin=GPIO_PIN_0;
+ 8000c56:	2301      	movs	r3, #1
  8000c58:	607b      	str	r3, [r7, #4]
 	GPIO_set.Speed=GPIO_SPEED_FREQ_LOW;
  8000c5a:	2300      	movs	r3, #0
