@@ -80,3 +80,24 @@ Finished building: default.size.stdout
  
 Finished building: PWM_External_LED.list
  
+23:10:06 **** Incremental Build of configuration Debug for project Orientation and LED Control with MPU6050 and STM32 ****
+make -j8 all 
+arm-none-eabi-size  Orientation\ and\ LED\ Control\ with\ MPU6050\ and\ STM32.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14064	     12	   1796	  15872	   3e00	Orientation and LED Control with MPU6050 and STM32.elf
+Finished building: default.size.stdout
+ 
+23:17:28 **** Incremental Build of configuration Debug for project Orientation and LED Control with MPU6050 and STM32 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Orientation and LED Control with MPU6050 and STM32.elf" @"objects.list"   -mcpu=cortex-m4 -T"F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Orientation and LED Control with MPU6050 and STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Orientation and LED Control with MPU6050 and STM32.elf
+ 
+arm-none-eabi-size  Orientation\ and\ LED\ Control\ with\ MPU6050\ and\ STM32.elf 
+arm-none-eabi-objdump -h -S Orientation\ and\ LED\ Control\ with\ MPU6050\ and\ STM32.elf  > "Orientation and LED Control with MPU6050 and STM32.list"
+   text	   data	    bss	    dec	    hex	filename
+  14084	     12	   1796	  15892	   3e14	Orientation and LED Control with MPU6050 and STM32.elf
+Finished building: default.size.stdout
+ 
+Finished building: Orientation and LED Control with MPU6050 and STM32.list
+ 
