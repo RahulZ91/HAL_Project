@@ -1,0 +1,13 @@
+/*
+ * MPU6050_Data.h
+ *
+ *  Created on: Dec 28, 2025
+ *      Author: hp
+ */
+
+#ifndef SRC_MPU6050_DATA_H_
+#define SRC_MPU6050_DATA_H_
+
+
+
+#endif /* SRC_MPU6050_DATA_H_ */

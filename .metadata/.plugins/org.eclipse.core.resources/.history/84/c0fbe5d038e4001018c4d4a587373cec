@@ -1,0 +1,8 @@
+/*
+ * MPU6050_Data.c
+ *
+ *  Created on: Dec 28, 2025
+ *      Author: hp
+ */
+
+#include "MPU6050_Data.h"
