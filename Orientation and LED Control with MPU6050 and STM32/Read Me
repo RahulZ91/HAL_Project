@@ -1,1 +1,6 @@
 The project details and documentation
+The project uses MPU6050 sensor to receive the information regarding the pitch, roll and yaw.
+I2C is used for communication with the STM32F446RE as the master and the sensor as the slave device.
+Timer 2 is used for time base and PWM generation with both channel 1 and channel 2 being used
+The intensity of the LED will differ based on the angle of bank
+
