@@ -75,7 +75,7 @@ void Error_Handler(void);
 #define SWO_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-
+#define MPU6050_I2C_ADDR ((uint8_t)0x68)
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

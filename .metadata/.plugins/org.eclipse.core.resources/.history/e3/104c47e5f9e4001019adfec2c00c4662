@@ -1,0 +1,37 @@
+/*
+ * MPU6050_Data.c
+ *
+ *  Created on: Dec 28, 2025
+ *      Author: hp
+ */
+#include "main.h"
+#include "MPU6050_Data.h"
+
+static mpu6050_i2c_addr;  // saves the address of the mpu6050 sent from main.c
+
+mpu6050_status_t mpu6050_Init(I2C_HandleTypeDef *i2c,uint8_t i2c_addr)
+{
+	mpu6050_i2c_addr=i2c_addr;
+	// Read one byte from the sensor
+	uint8_t reg_addr=117;
+	uint8_t response_buffer=0;
+	if(HAL_I2C_Mem_Read(&i2c, i2c_addr, reg_addr, 1, &response_buffer, 1, 500) ==HAL_OK)
+	{
+		if(response_buffer == 0x68)
+		{
+			printf("Valid MPU6050 found");
+		}
+		else
+		{
+			print("Invalid device found");
+			return MPU6050_ERR;
+		}
+
+	}
+	else
+	{
+		return MPU6050_ERR;
+	}
+return MPU6050_OK;
+
+}

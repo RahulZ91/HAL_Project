@@ -101,6 +101,7 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  mpu6050_Init(&hi2c1,MPU6050_I2C_ADDR);
   if(HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_1) != HAL_OK)
   {
 	  while(1);
