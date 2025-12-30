@@ -3,6 +3,7 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="I2C_HandleTypeDef"/>
 		<item value="PeriodElapsedCallback"/>
 		<item value="__HAL_TIM_ENABLE_IT"/>
 		<item value="HAL_TIM_PWM_Start_IT"/>
@@ -17,6 +18,5 @@
 		<item value="timer"/>
 		<item value="Register base address"/>
 		<item value="TIM2"/>
-		<item value="HAL_TIM_IC_CaptureCallback"/>
 	</list>
 </section>

@@ -453,7 +453,8 @@ mpu6050_status_t mpu6050_Init(I2C_HandleTypeDef *i2c,uint8_t i2c_addr)
 	uint8_t response_buffer=0;
  80005f2:	2300      	movs	r3, #0
  80005f4:	73bb      	strb	r3, [r7, #14]
-	if(HAL_I2C_Mem_Read(i2c, i2c_addr<<1, reg_addr, 1, &response_buffer, 1, 500) ==HAL_OK) // the left shift of 1 bit is done to accommodate the read/write bit
+
+	if(HAL_I2C_Mem_Read(i2c, i2c_addr<<1, reg_addr, 1, &response_buffer, 1, 500) == HAL_OK) // the left shift of 1 bit is done to accommodate the read/write bit
  80005f6:	78fb      	ldrb	r3, [r7, #3]
  80005f8:	b29b      	uxth	r3, r3
  80005fa:	005b      	lsls	r3, r3, #1
