@@ -1,0 +1,138 @@
+MPU6050 I²C Bring-Up Debug Summary
+
+Objective: Read the WHO_AM_I register (0x75) from an MPU6050-6DoF sensor using STM32F446RE via I²C.
+
+Problems Faced During Bring-Up
+
+HAL_I2C_Mem_Read() failing / NO ACK from sensor
+
+Initial code returned HAL_ERROR
+
+Sensor did not acknowledge either 0x68 or 0x69
+
+Initial wiring / pull-up mistakes
+
+Added 4.7kΩ pull-ups from SDA/SCL to VCC (both 3.3V and 5V tested)
+
+Incorrect pull-up voltage caused I²C logic level mismatch → no ACK
+
+VCC confusion
+
+MPU6050 breakout label: “I2C Logic / VCC 3–5V DC”
+
+Feeding 3.3V sometimes underpowered board → no ACK
+
+Feeding 5V OK, but pull-ups must remain at 3.3V
+
+I2C address uncertainty
+
+AD0 pin determines 7-bit address: 0x68 (AD0=GND) or 0x69 (AD0=VCC)
+
+Tested both addresses; neither ACKed initially
+
+CubeMX / STM32 configuration verification
+
+PB6 = SCL (D15), PB7 = SDA (D14) — correct
+
+HAL GPIO initialized correctly (Alternate Function Open-Drain, no internal pull-up)
+
+Peripheral clock enabled → software configuration not the issue
+
+Pull-ups already present on MPU6050 board
+
+External pull-ups were redundant and in some cases interfered with logic levels
+
+Root Causes Identified
+
+Misalignment of pull-up voltage vs logic level
+
+Misunderstanding of VCC vs I²C logic
+
+Initial over-complication with external resistors
+
+Electrical / bus stability (breadboard rails, wiring)
+
+Final Known-Good Setup
+
+VCC → 5V (Nucleo 5V pin)
+
+GND → common GND
+
+PB6 (D15) → SCL, PB7 (D14) → SDA
+
+No external pull-ups (board has built-in 4.7kΩ to 3.3V)
+
+I2C1, 100 kHz, GPIO mode AF_OD, no internal pull-up
+
+Next Step: Run HAL_I2C_IsDeviceReady(&hi2c1, 0x68 << 1) — expected to return HAL_OK
+
+31 Dec
+The sensor has been recognised. The PB6 and the PB7 pins in the alternate mode have been mapped to the CN10-17th and the CN7-21th pin on the board
+No pull resistors are added
+Vcc used is 3.3V
+
+
+
+✅ MPU6050 I²C Bring-Up – Final Working Configuration
+Board & MCU
+
+MCU: STM32F446RE (Nucleo-F446RE)
+
+Sensor: MPU6050-6DoF
+
+Interface: I²C1
+
+🔌 Pin Mapping (Confirmed Working)
+MCU Pin	Function	Nucleo Connector
+PB6	I2C1_SCL	CN10 – Pin 17
+PB7	I2C1_SDA	CN7 – Pin 21
+
+Pins configured in Alternate Function Open-Drain mode (AF4).
+
+⚡ Power & Pull-Ups
+
+VCC: 3.3 V
+
+GND: Common ground with MCU
+
+External pull-up resistors: ❌ Not used
+
+Internal pull-ups: ❌ Not enabled in GPIO
+
+➡️ The MPU6050 breakout board provides on-board pull-ups to 3.3 V, making external resistors unnecessary.
+
+🧠 HAL / CubeMX Configuration
+
+I²C Instance: I2C1
+
+Clock speed: 100 kHz
+
+GPIO Mode: GPIO_MODE_AF_OD
+
+Pull: GPIO_NOPULL
+
+Alternate Function: GPIO_AF4_I2C1
+
+Peripheral clock: Enabled
+
+✅ Verification
+
+HAL_I2C_IsDeviceReady() returns ACK
+
+HAL_I2C_Mem_Read() successfully reads WHO_AM_I (0x75)
+
+Sensor correctly identified as MPU6050 (0x68)
+
+🧩 Why It Works (Key Lessons)
+
+Nucleo pin names vs MCU pins matter
+PB6/PB7 are routed to specific CN connectors, not just Arduino headers.
+
+MPU6050 logic ≠ VCC label
+Even though marked “3–5 V”, the I²C logic is 3.3 V.
+
+Double pull-ups can break I²C
+Adding external pull-ups on a board that already has them caused NO ACK.
+
+NO ACK ≠ software bug
+In this case, it was electrical + board routing, not HAL or code logic.
