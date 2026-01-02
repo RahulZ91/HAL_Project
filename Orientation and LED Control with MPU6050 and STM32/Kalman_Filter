@@ -1,1 +1,3 @@
 Note on kalman filter- concept and use cases
+
+A "Kalman roll angle" refers to the estimated angle of a vehicle's rotation (roll) around its longitudinal axis, calculated using a Kalman filter to combine noisy sensor data (like accelerometers and gyroscopes) into a smooth, accurate, real-time measurement, crucial for navigation and stability in aircraft, drones, and two-wheeled vehicles
