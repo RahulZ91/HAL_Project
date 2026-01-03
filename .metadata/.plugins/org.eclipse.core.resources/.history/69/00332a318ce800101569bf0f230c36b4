@@ -1,0 +1,100 @@
+/*
+ * MPU6050_Data.c
+ *
+ *  Created on: Dec 28, 2025
+ *      Author: hp
+ */
+#include "main.h"
+#include "MPU6050_Data.h"
+#include <stdio.h>
+#define I2C_TIMEOUT 500
+static uint8_t mpu6050_i2c_addr;  // saves the address of the mpu6050 sent from main.c
+
+// Function to read only one byte(8 bit if data)
+mpu6050_status_t mpu6050_read_byte(I2C_HandleTypeDef *i2c,uint8_t i2c_addr,uint8_t* data)
+{
+	mpu6050_status_t status=0;
+	status=HAL_I2C_Mem_Read(i2c, mpu6050_i2c_addr<<1, i2c_addr, 1, data, 1, I2C_TIMEOUT);
+	if(status == HAL_OK)
+	{
+		return MPU6050_OK;
+	}
+	else
+	{
+		return MPU6050_ERR;
+	}
+}
+
+// General function to read with a specifiied length
+mpu6050_status_t mpu6050_read(I2C_HandleTypeDef *i2c,uint8_t reg_base_addr,uint8_t* buffer,uint8_t length)
+{
+	mpu6050_status_t status=0;
+	status=HAL_I2C_Mem_Read(i2c, mpu6050_i2c_addr<<1, reg_base_addr, 1,  buffer, length, I2C_TIMEOUT);
+	if(status == HAL_OK)
+	{
+		return MPU6050_OK;
+	}
+	else
+	{
+		return MPU6050_ERR;
+	}
+}
+
+mpu6050_status_t mpu6050_write_byte(I2C_HandleTypeDef *i2c,uint8_t i2c_addr,uint8_t* data)
+{
+	mpu6050_status_t status=0;
+	status=HAL_I2C_Mem_Write(i2c, mpu6050_i2c_addr<<1,i2c_addr, 1, &data, 1, I2C_TIMEOUT);
+	if(status == HAL_OK)
+	{
+		return MPU6050_OK;
+	}
+	else
+	{
+		return MPU6050_ERR;
+	}
+}
+
+mpu6050_status_t mpu6050_Init(I2C_HandleTypeDef *i2c,uint8_t i2c_addr)
+{
+	mpu6050_i2c_addr=i2c_addr;
+	// Read one byte from the sensor
+	uint8_t read_byte=0;
+	if(mpu6050_read_byte(i2c,MPU_6050_WHO_AM_I,&read_byte) != HAL_OK)
+	{
+		return MPU6050_ERR;
+	}
+	if(read_byte==0x68)
+	{
+		printf("Valid device address found at %x",mpu6050_i2c_addr);
+	}
+	else
+	{
+		printf("Device not found");
+		return MPU6050_ERR;
+	}
+	uint8_t data=0x00;
+	if(mpu6050_write_byte(i2c,MPU_6050_PWR_MGMT_1,data) != HAL_OK)
+		{
+			return MPU6050_ERR;
+		}
+return MPU6050_OK;
+
+}
+
+mpu_accelerometer_data_t mpu_read_accelerometer_data(I2C_HandleTypeDef *i2c,uint8_t i2c_addr,mpu_accelerometer_data_t *accel_data)
+{
+	mpu_accelerometer_data_t accel_data;
+	uint8_t raw_data[6];         // 6 because each axis has 2 bytes of data
+	mpu6050_status_t status=mpu6050_read(i2c,MPU6050_ACCELO_START,raw_data,sizeof(raw_data));
+	if(status !=MPU6050_OK)
+	{
+		return status;
+	}
+
+	accel_data->x=int16_t(raw_data[0]<<8 | raw_data[1]);
+	accel_data->y=int16_t(raw_data[2]<<8 | raw_data[3]);
+	accel_data->z=int16_t(raw_data[4]<<8 | raw_data[5]);
+
+	return MPU6050_OK;
+}
+

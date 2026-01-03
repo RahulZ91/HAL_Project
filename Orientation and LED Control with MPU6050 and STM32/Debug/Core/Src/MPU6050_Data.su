@@ -1,1 +1,5 @@
-../Core/Src/MPU6050_Data.c:13:18:mpu6050_Init	40	static
+../Core/Src/MPU6050_Data.c:14:18:mpu6050_read_byte	48	static
+../Core/Src/MPU6050_Data.c:29:18:mpu6050_read	48	static
+../Core/Src/MPU6050_Data.c:43:18:mpu6050_write_byte	48	static
+../Core/Src/MPU6050_Data.c:57:18:mpu6050_Init	24	static
+../Core/Src/MPU6050_Data.c:84:18:mpu_read_accelerometer_data	32	static
