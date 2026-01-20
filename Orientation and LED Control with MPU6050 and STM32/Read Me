@@ -1,6 +1,9 @@
 The project details and documentation
-The project uses MPU6050 sensor to receive the information regarding the pitch, roll and yaw.
-I2C is used for communication with the STM32F446RE as the master and the sensor as the slave device.
-Timer 2 is used for time base and PWM generation with both channel 1 and channel 2 being used
-The intensity of the LED will differ based on the angle of bank
+IMU-Based Roll Angle Estimation and PWM Control (STM32) – Ongoing
+•	Integrated MPU6050 IMU sensor on STM32, including analysis and resolution of I²C communication issues (ACK, pin mapping) via register-level debugging
+•	Developed I²C read/write drivers using STM32 HAL for power management, sampling rate, and sensor configuration
+•	Implemented roll angle estimation from raw accelerometer data and derived a PWM control signal based on system orientation
+•	Configured STM32 timers for PWM generation and dynamically adjusted duty cycle using real-time sensor data
+•	Applied signal conditioning (scaling, clamping, dead-zone logic) to stabilize control behavior and reduce noise
+•	Validated and debugged system behavior using LED as an actuator
 
