@@ -48,7 +48,11 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+const mpu_accelerometer_data_t error_offset={
+		.x=250,
+		.y=-200,
+		.z=156
+};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -128,6 +132,8 @@ int main(void)
 	  	  {
 	  		  while(1);
 	  	  }
+
+	  g_accel_data=mpu6050_accelaration_calibration(&error_offset, &g_accel_data);
 	  	  accel_x = g_accel_data.x;
 	  	  accel_y = g_accel_data.y;
 	  	   accel_z = g_accel_data.z;

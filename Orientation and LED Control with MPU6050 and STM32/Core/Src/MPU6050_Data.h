@@ -31,7 +31,7 @@ typedef struct
 }mpu_accelerometer_data_t;
 
 mpu6050_status_t mpu_read_accelerometer_data(I2C_HandleTypeDef *i2c,uint8_t i2c_addr,mpu_accelerometer_data_t *accel_data);
-
+mpu_accelerometer_data_t mpu6050_accelaration_calibration(const mpu_accelerometer_data_t *error_offset,mpu_accelerometer_data_t *raw_data);
 
 
 #endif /* SRC_MPU6050_DATA_H_ */
