@@ -65,9 +65,7 @@ void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-volatile mpu_accelerometer_data_t g_accel_data;
-volatile int16_t accel_x, accel_y, accel_z;
-
+mpu_accelerometer_data_t g_accel_data;
 /* USER CODE END 0 */
 
 /**
@@ -122,17 +120,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
 	  if(mpu_read_accelerometer_data(&hi2c1, MPU6050_I2C_ADDR, &g_accel_data) != MPU6050_OK)
-	  	  {
-	  		  while(1);
-	  	  }
-	  	  accel_x = g_accel_data.x;
-	  	  accel_y = g_accel_data.y;
-	  	   accel_z = g_accel_data.z;
-
-
+	  {
+		  while(1);
+	  }
+	  HAL_Delay(1000);
+    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }

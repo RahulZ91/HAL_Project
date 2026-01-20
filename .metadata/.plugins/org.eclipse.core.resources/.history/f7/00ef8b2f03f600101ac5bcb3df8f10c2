@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stm32f4xx_hal_tim.h"
+#include "MPU6050_Data.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -64,7 +65,7 @@ void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+mpu_accelerometer_data_t g_accel_data;
 /* USER CODE END 0 */
 
 /**
@@ -100,6 +101,10 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  if(mpu6050_Init(&hi2c1,MPU6050_I2C_ADDR) !=MPU6050_OK);
+  {
+	  while(1);
+  }
   if(HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_1) != HAL_OK)
   {
 	  while(1);
@@ -115,7 +120,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  if(mpu_read_accelerometer_data(&hi2c1, MPU6050_I2C_ADDR, &g_accel_data) != MPU6050_OK)
+	  {
+		  while(1);
+	  }
+	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
