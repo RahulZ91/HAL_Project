@@ -73,7 +73,7 @@ void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim);
 volatile mpu_accelerometer_data_t g_accel_data;
 volatile int16_t accel_x, accel_y, accel_z;
 volatile float roll_angle;
-
+volatile float roll_debug __attribute__((used));
 /* USER CODE END 0 */
 
 /**
@@ -140,7 +140,8 @@ int main(void)
 	  	  accel_y = g_accel_data.y;
 	  	   accel_z = g_accel_data.z;
 
-	  	   roll_angle=atan2f((double)accel_z, (float)accel_y) * 57.29578f;
+	  	   roll_angle=atan2f((float)accel_z, (float)accel_y) * 57.29578f;
+	  	 roll_debug = 45.0f;
 	  	 HAL_Delay(100);
 
   }
