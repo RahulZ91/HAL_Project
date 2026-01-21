@@ -140,7 +140,7 @@ int main(void)
 	  	  accel_y = g_accel_data.y;
 	  	   accel_z = g_accel_data.z;
 
-	  	   roll_angle=atan2f((double)accel_z, (float)accel_y) * 57.29578f;
+	  	   roll_angle=atan2f((float)accel_z, (float)accel_y) * 57.29578f;
 	  	 HAL_Delay(100);
 
   }
