@@ -70,10 +70,10 @@ void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-volatile mpu_accelerometer_data_t g_accel_data;
-volatile int16_t accel_x, accel_y, accel_z;
+mpu_accelerometer_data_t g_accel_data;
+volatile int16_t accel_x, accel_y, accel_z=0;
 volatile float roll_angle;
-volatile float roll_debug __attribute__((used));
+volatile int32_t roll_angle_cm;
 /* USER CODE END 0 */
 
 /**
@@ -130,18 +130,20 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if(mpu_read_accelerometer_data(&hi2c1, MPU6050_I2C_ADDR, &g_accel_data) != MPU6050_OK)
-	  	  {
-	  		  while(1);
+	 if(mpu_read_accelerometer_data(&hi2c1, MPU6050_I2C_ADDR, &g_accel_data) != MPU6050_OK)
+	  	 {
+	  		 while(1);
 	  	  }
 
 	  g_accel_data=mpu6050_accelaration_calibration(&error_offset, &g_accel_data);
-	  	  accel_x = g_accel_data.x;
-	  	  accel_y = g_accel_data.y;
-	  	   accel_z = g_accel_data.z;
+	  	  accel_x = (uint32_t)g_accel_data.x;
+	  	  accel_y = (uint32_t)g_accel_data.y;
+	  	   accel_z = (uint32_t)g_accel_data.z;
 
-	  	   roll_angle=atan2f((float)accel_z, (float)accel_y) * 57.29578f;
-	  	 roll_debug = 45.0f;
+	  	   roll_angle=(uint32_t)((atan2f((float)accel_z, (float)accel_y) * 57.29578f));
+	  	//roll_angle_cm = (int32_t)(roll_angle * 100.0f);
+
+	  	__DMB();
 	  	 HAL_Delay(100);
 
   }
