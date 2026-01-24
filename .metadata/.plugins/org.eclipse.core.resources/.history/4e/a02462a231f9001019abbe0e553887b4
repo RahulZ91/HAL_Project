@@ -13,7 +13,7 @@
 void kalman_filter_init(kalmanfilter *kf)
 {
 	kf->q_angle=0.001f;
-	kf->r_measure=0.003f;
+	kf->r_angle=0.003f;
 	kf->angle = 0.0f;
 	kf->p[0][0] = 0.0f;
 	kf->p[0][1] = 0.0f;

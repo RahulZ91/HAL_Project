@@ -14,7 +14,7 @@ typedef struct
 	float q_angle;
 	float r_measure;
 	float angle;
-	float p[2][2];
+	float p[2][2]
 }kalmanfilter;
 
 void kalman_filter_init(kalmanfilter* kf) ;
