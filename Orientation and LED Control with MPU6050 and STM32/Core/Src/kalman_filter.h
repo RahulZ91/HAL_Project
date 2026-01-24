@@ -1,0 +1,20 @@
+/*
+ * kalman_filter.h
+ *
+ *  Created on: Jan 24, 2026
+ *      Author: hp
+ */
+
+#ifndef SRC_KALMAN_FILTER_H_
+#define SRC_KALMAN_FILTER_H_
+
+
+typedef struct
+{
+	float q_angle;
+	float r_angle;
+	float angle;
+	float p[2][2]
+}kalmanfilter;
+
+#endif /* SRC_KALMAN_FILTER_H_ */

@@ -920,17 +920,17 @@ int main(void)
  80008b0:	6010      	str	r0, [r2, #0]
  80008b2:	889b      	ldrh	r3, [r3, #4]
  80008b4:	8093      	strh	r3, [r2, #4]
-	  	  accel_x = (uint32_t)g_accel_data.x;
+	  	  accel_x = g_accel_data.x;
  80008b6:	4b1d      	ldr	r3, [pc, #116]	@ (800092c <main+0xf8>)
  80008b8:	f9b3 2000 	ldrsh.w	r2, [r3]
  80008bc:	4b1d      	ldr	r3, [pc, #116]	@ (8000934 <main+0x100>)
  80008be:	801a      	strh	r2, [r3, #0]
-	  	  accel_y = (uint32_t)g_accel_data.y;
+	  	  accel_y = g_accel_data.y;
  80008c0:	4b1a      	ldr	r3, [pc, #104]	@ (800092c <main+0xf8>)
  80008c2:	f9b3 2002 	ldrsh.w	r2, [r3, #2]
  80008c6:	4b1c      	ldr	r3, [pc, #112]	@ (8000938 <main+0x104>)
  80008c8:	801a      	strh	r2, [r3, #0]
-	  	   accel_z = (uint32_t)g_accel_data.z;
+	  	   accel_z = g_accel_data.z;
  80008ca:	4b18      	ldr	r3, [pc, #96]	@ (800092c <main+0xf8>)
  80008cc:	f9b3 2004 	ldrsh.w	r2, [r3, #4]
  80008d0:	4b1a      	ldr	r3, [pc, #104]	@ (800093c <main+0x108>)
@@ -966,7 +966,7 @@ __STATIC_FORCEINLINE void __DMB(void)
  8000916:	f3bf 8f5f 	dmb	sy
 }
  800091a:	bf00      	nop
-	  	//roll_angle_cm = (int32_t)(roll_angle * 100.0f);
+
 
 	  	__DMB();
 	  	 HAL_Delay(100);

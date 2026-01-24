@@ -136,12 +136,12 @@ int main(void)
 	  	  }
 
 	  g_accel_data=mpu6050_accelaration_calibration(&error_offset, &g_accel_data);
-	  	  accel_x = g_accel_data.x;
-	  	  accel_y = g_accel_data.y;
-	  	   accel_z = g_accel_data.z;
+	  	  accel_x = (uint32_t)g_accel_data.x;
+	  	  accel_y = (uint32_t)g_accel_data.y;
+	  	   accel_z = (uint32_t)g_accel_data.z;
 
 	  	   roll_angle=(uint32_t)((atan2f((float)accel_z, (float)accel_y) * 57.29578f));
-
+	  	//roll_angle_cm = (int32_t)(roll_angle * 100.0f);
 
 	  	__DMB();
 	  	 HAL_Delay(100);
