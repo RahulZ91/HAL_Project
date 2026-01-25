@@ -1,4 +1,4 @@
-15:33:55 **** Build of configuration Debug for project Orientation and LED Control with MPU6050 and STM32 ****
+21:52:42 **** Build of configuration Debug for project Orientation and LED Control with MPU6050 and STM32 ****
 make -j8 all 
 arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
 arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
@@ -33,8 +33,15 @@ Finished building target: Orientation and LED Control with MPU6050 and STM32.elf
 arm-none-eabi-size  Orientation\ and\ LED\ Control\ with\ MPU6050\ and\ STM32.elf 
 arm-none-eabi-objdump -h -S Orientation\ and\ LED\ Control\ with\ MPU6050\ and\ STM32.elf  > "Orientation and LED Control with MPU6050 and STM32.list"
    text	   data	    bss	    dec	    hex	filename
-  23492	    104	   2152	  25748	   6494	Orientation and LED Control with MPU6050 and STM32.elf
+  23864	    104	   2168	  26136	   6618	Orientation and LED Control with MPU6050 and STM32.elf
 Finished building: default.size.stdout
  
 Finished building: Orientation and LED Control with MPU6050 and STM32.list
+ 
+21:52:53 **** Incremental Build of configuration Debug for project Orientation and LED Control with MPU6050 and STM32 ****
+make -j8 all 
+arm-none-eabi-size  Orientation\ and\ LED\ Control\ with\ MPU6050\ and\ STM32.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23864	    104	   2168	  26136	   6618	Orientation and LED Control with MPU6050 and STM32.elf
+Finished building: default.size.stdout
  

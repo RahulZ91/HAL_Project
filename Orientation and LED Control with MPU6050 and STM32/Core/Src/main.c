@@ -24,6 +24,7 @@
 #include "stm32f4xx_hal_tim.h"
 #include "MPU6050_Data.h"
 #include<math.h>
+#include "kalman_filter.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -33,7 +34,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define ANGLE_POS_MIN 0
+#define ANGLE_POS_MAX 90
+#define PWM_PULSE_MIN 0
+#define PWM_PULSE_MAX 80
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -74,6 +78,30 @@ mpu_accelerometer_data_t g_accel_data;
 volatile int16_t accel_x, accel_y, accel_z=0;
 volatile float roll_angle;
 volatile int32_t roll_angle_cm;
+int16_t kalman_roll_angle;
+uint8_t channel;
+volatile float roll_angle_abs;
+uint32_t pwm_value;
+
+// Map function: re-maps a number from one range to another
+long map(long x, long in_min, long in_max, long out_min, long out_max) {
+    // Perform  mapping
+    long result = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+
+    // Clamp the result to the output range
+    if (result > out_max) {
+        result = out_max;
+    } else if (result < out_min) {
+        result = out_min;
+    }
+
+    return result;
+}
+
+
+void update_pwm_duty_cycle(uint32_t pwm_pulse, uint8_t timer_channel) {
+	__HAL_TIM_SET_COMPARE(&htim2, timer_channel, pwm_pulse);
+}
 /* USER CODE END 0 */
 
 /**
@@ -84,7 +112,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+	//float dt=0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -109,6 +137,11 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+
+  // call Kalman filter
+  kalmanfilter kf;
+  kalman_filter_init(&kf);
+
   if(mpu6050_Init(&hi2c1,MPU6050_I2C_ADDR) !=MPU6050_OK)
   {
 	  while(1);
@@ -121,6 +154,8 @@ int main(void)
     {
   	  while(1);
     }
+
+ // uint32_t previous_tick=HAL_GetTick();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -130,6 +165,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+//	 uint32_t current_tick=HAL_GetTick();
+//	dt=(current_tick - previous_tick)/1000.0f;
+	//previous_tick=current_tick;
+
 	 if(mpu_read_accelerometer_data(&hi2c1, MPU6050_I2C_ADDR, &g_accel_data) != MPU6050_OK)
 	  	 {
 	  		 while(1);
@@ -140,11 +179,23 @@ int main(void)
 	  	  accel_y = g_accel_data.y;
 	  	   accel_z = g_accel_data.z;
 
-	  	   roll_angle=(uint32_t)((atan2f((float)accel_z, (float)accel_y) * 57.29578f));
+	  	   roll_angle=((atan2f((float)accel_z, (float)accel_y) * 57.29578f));
+	  	   if(roll_angle<0)
+	  	   {
+	  		   channel=TIM_CHANNEL_1;
+	  		   roll_angle_abs=-roll_angle;
+	  	   }
+	  	   else
+	  	   {
+	  		   channel=TIM_CHANNEL_2;
+	  		   roll_angle_abs=roll_angle;
+	  	   }
 
-
+	  	   pwm_value=map(roll_angle_abs,ANGLE_POS_MIN,ANGLE_POS_MAX,PWM_PULSE_MIN,PWM_PULSE_MAX);
 	  	__DMB();
 	  	 HAL_Delay(100);
+
+	  	 update_pwm_duty_cycle(pwm_value,channel);
 
   }
   /* USER CODE END 3 */
