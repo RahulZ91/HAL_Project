@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Orientation and LED Control with MPU6050 and STM32</name>
+	<name>stm32-imu-roll-estimation</name>
 	<comment></comment>
 	<projects>
 	</projects>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Orientation and LED Control with MPU6050 and STM32&apos; to &apos;stm32-imu-roll-estimation&apos;" description="Rename resource &apos;Orientation and LED Control with MPU6050 and STM32&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Orientation and LED Control with MPU6050 and STM32" name="stm32-imu-roll-estimation" stamp="1769447691850" updateReferences="true"/>
+</session>
