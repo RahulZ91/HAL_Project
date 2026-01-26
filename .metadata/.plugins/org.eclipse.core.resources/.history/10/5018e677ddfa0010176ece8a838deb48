@@ -38,8 +38,6 @@
 #define ANGLE_POS_MAX 90
 #define PWM_PULSE_MIN 0
 #define PWM_PULSE_MAX 80
-#define DEADZONE_PERCENT 5.0f   // 5%
-#define DEADZONE_DEG (ANGLE_POS_MAX * DEADZONE_PERCENT / 100.0f)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -192,11 +190,7 @@ int main(void)
 	  		   channel=TIM_CHANNEL_2;
 	  		   roll_angle_abs=roll_angle;
 	  	   }
-	  	   // Deadzone implementation
-	  	   if(roll_angle_abs < DEADZONE_DEG)
-	  	   {
-	  		 roll_angle_abs =0;
-	  	   }
+
 	  	   pwm_value=map(roll_angle_abs,ANGLE_POS_MIN,ANGLE_POS_MAX,PWM_PULSE_MIN,PWM_PULSE_MAX);
 	  	__DMB();
 	  	 HAL_Delay(100);
