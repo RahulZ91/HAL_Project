@@ -1,0 +1,7 @@
+Kalman Filter–Based Roll Angle Estimation (MPU6050 + STM32)
+
+The MPU6050 IMU provides raw accelerometer and gyroscope data via I²C, which is acquired on the STM32 using the HAL drivers. The accelerometer-based roll angle, computed from gravity, is sensitive to vibration and linear acceleration, while the gyroscope provides smooth angular rate measurements but accumulates drift when integrated over time.
+
+A Kalman filter is used to fuse both sensor readings. The gyroscope roll rate is used in the prediction step to estimate the current roll angle at each sampling interval, while the accelerometer-derived roll angle is used in the correction step to reduce long-term drift. Sensor noise characteristics are modeled to dynamically balance trust between the accelerometer and gyroscope.
+
+This approach produces a smooth, stable, and drift-corrected roll angle, making it suitable for real-time embedded control and monitoring applications on STM32-based systems.

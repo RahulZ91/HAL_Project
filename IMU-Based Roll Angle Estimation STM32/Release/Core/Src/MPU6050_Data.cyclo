@@ -1,0 +1,6 @@
+../Core/Src/MPU6050_Data.c:14:18:mpu6050_read_byte	1
+../Core/Src/MPU6050_Data.c:29:18:mpu6050_read	1
+../Core/Src/MPU6050_Data.c:43:18:mpu6050_write_byte	1
+../Core/Src/MPU6050_Data.c:57:18:mpu6050_Init	3
+../Core/Src/MPU6050_Data.c:84:18:mpu_read_accelerometer_data	2
+../Core/Src/MPU6050_Data.c:101:26:mpu6050_accelaration_calibration	1
