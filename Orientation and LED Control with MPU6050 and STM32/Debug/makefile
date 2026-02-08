@@ -9,6 +9,10 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -34,34 +38,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := IMU-BasedRollAngleEstimationandPWMControl
+BUILD_ARTIFACT_NAME := IMU-Based Roll Angle Estimation STM32 and FreeRTOS
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-IMU-BasedRollAngleEstimationandPWMControl.elf \
+IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.elf \
 
 MAP_FILES += \
-IMU-BasedRollAngleEstimationandPWMControl.map \
+IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-IMU-BasedRollAngleEstimationandPWMControl.list \
+IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: IMU-BasedRollAngleEstimationandPWMControl.elf secondary-outputs
+main-build: IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.elf secondary-outputs
 
 # Tool invocations
-IMU-BasedRollAngleEstimationandPWMControl.elf IMU-BasedRollAngleEstimationandPWMControl.map: $(OBJS) $(USER_OBJS) F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation\ and\ LED\ Control\ with\ MPU6050\ and\ STM32\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "IMU-BasedRollAngleEstimationandPWMControl.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU-BasedRollAngleEstimationandPWMControl.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.elf IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.map: $(OBJS) $(USER_OBJS) F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation\ and\ LED\ Control\ with\ MPU6050\ and\ STM32\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "IMU-Based Roll Angle Estimation STM32 and FreeRTOS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU-Based Roll Angle Estimation STM32 and FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +74,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-IMU-BasedRollAngleEstimationandPWMControl.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "IMU-BasedRollAngleEstimationandPWMControl.list"
+IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "IMU-Based Roll Angle Estimation STM32 and FreeRTOS.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) IMU-BasedRollAngleEstimationandPWMControl.elf IMU-BasedRollAngleEstimationandPWMControl.list IMU-BasedRollAngleEstimationandPWMControl.map default.size.stdout
+	-$(RM) IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.elf IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.list IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.map IMU-Based\\ Roll\\ Angle\\ Estimation\\ STM32\\ and\\ FreeRTOS.elf default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
