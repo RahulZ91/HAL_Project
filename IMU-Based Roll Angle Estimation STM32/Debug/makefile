@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := IMU-Based Roll Angle Estimation STM32 and FreeRTOS
+BUILD_ARTIFACT_NAME := IMU-Based Roll Angle Estimation STM32
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.elf \
+IMU-Based\ Roll\ Angle\ Estimation\ STM32.elf \
 
 MAP_FILES += \
-IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.map \
+IMU-Based\ Roll\ Angle\ Estimation\ STM32.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.list \
+IMU-Based\ Roll\ Angle\ Estimation\ STM32.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.elf secondary-outputs
+main-build: IMU-Based\ Roll\ Angle\ Estimation\ STM32.elf secondary-outputs
 
 # Tool invocations
-IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.elf IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.map: $(OBJS) $(USER_OBJS) F:\Knowledge_Update\workspace_1.19.0\HAL\IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "IMU-Based Roll Angle Estimation STM32 and FreeRTOS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"F:\Knowledge_Update\workspace_1.19.0\HAL\IMU-Based Roll Angle Estimation STM32 and FreeRTOS\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU-Based Roll Angle Estimation STM32 and FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+IMU-Based\ Roll\ Angle\ Estimation\ STM32.elf IMU-Based\ Roll\ Angle\ Estimation\ STM32.map: $(OBJS) $(USER_OBJS) F:\Knowledge_Update\workspace_1.19.0\HAL\IMU-Based\ Roll\ Angle\ Estimation\ STM32\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "IMU-Based Roll Angle Estimation STM32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"F:\Knowledge_Update\workspace_1.19.0\HAL\IMU-Based Roll Angle Estimation STM32\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU-Based Roll Angle Estimation STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "IMU-Based Roll Angle Estimation STM32 and FreeRTOS.list"
+IMU-Based\ Roll\ Angle\ Estimation\ STM32.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "IMU-Based Roll Angle Estimation STM32.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.elf IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.list IMU-Based\ Roll\ Angle\ Estimation\ STM32\ and\ FreeRTOS.map IMU-Based\\ Roll\\ Angle\\ Estimation\\ STM32\\ and\\ FreeRTOS.elf default.size.stdout
+	-$(RM) IMU-Based\ Roll\ Angle\ Estimation\ STM32.elf IMU-Based\ Roll\ Angle\ Estimation\ STM32.list IMU-Based\ Roll\ Angle\ Estimation\ STM32.map IMU-Based\\ Roll\\ Angle\\ Estimation\\ STM32.elf default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

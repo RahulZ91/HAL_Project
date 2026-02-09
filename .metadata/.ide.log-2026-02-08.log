@@ -1,0 +1,189 @@
+2026-02-08 09:28:05,878 [INFO] WebApp:194 - Connection lost
+2026-02-08 09:28:14,286 [INFO] WebApp:191 - Connection restablished
+2026-02-08 10:09:19,398 [INFO] WebApp:194 - Connection lost
+2026-02-08 10:09:20,615 [INFO] WebApp:191 - Connection restablished
+2026-02-08 10:09:23,199 [INFO] WebApp:194 - Connection lost
+2026-02-08 10:09:23,461 [INFO] WebApp:191 - Connection restablished
+2026-02-08 10:09:32,289 [INFO] WebApp:194 - Connection lost
+2026-02-08 10:09:32,581 [INFO] WebApp:191 - Connection restablished
+2026-02-08 11:55:54,026 [INFO] WebApp:194 - Connection lost
+2026-02-08 11:55:54,655 [INFO] WebApp:191 - Connection restablished
+2026-02-08 11:55:54,684 [INFO] WebApp:194 - Connection lost
+2026-02-08 11:55:54,967 [INFO] WebApp:191 - Connection restablished
+2026-02-08 11:55:57,799 [INFO] WebApp:194 - Connection lost
+2026-02-08 11:55:58,090 [INFO] WebApp:191 - Connection restablished
+2026-02-08 12:50:59,432 [INFO] WebApp:194 - Connection lost
+2026-02-08 12:51:03,323 [INFO] WebApp:191 - Connection restablished
+2026-02-08 12:56:12,160 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 765149528 Bytes (1073741824)
+2026-02-08 12:56:14,628 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 790406520 Bytes (1073741824)
+2026-02-08 12:56:18,967 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 717168848 Bytes (1073741824)
+2026-02-08 12:57:57,182 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: FREERTOS
+2026-02-08 12:57:57,184 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-02-08 12:57:57,184 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-02-08 12:57:57,185 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-02-08 12:57:57,185 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2026-02-08 12:57:57,185 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-02-08 12:57:57,185 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2026-02-08 12:57:57,190 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-02-08 12:57:57,210 [INFO] CodeGenerator:892 - code generatio: config db path: F:\Knowledge_Update\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2026-02-08 12:57:57,251 [WARN] IP:2250 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2026-02-08 12:57:57,251 [WARN] IP:2250 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2026-02-08 12:57:57,661 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\license.tmp_save
+2026-02-08 12:57:58,435 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\license.tmp
+2026-02-08 12:57:58,571 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\gpio.tmp_save
+2026-02-08 12:57:59,189 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\gpio.tmp
+2026-02-08 12:58:00,187 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-02-08 12:58:00,200 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_inc.tmp_save
+2026-02-08 12:58:00,404 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_inc.tmp
+2026-02-08 12:58:00,414 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelInit.tmp_save
+2026-02-08 12:58:00,607 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelInit.tmp
+2026-02-08 12:58:00,625 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelStart.tmp_save
+2026-02-08 12:58:00,902 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelStart.tmp
+2026-02-08 12:58:00,910 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_typedefs.tmp_save
+2026-02-08 12:58:01,086 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_typedefs.tmp
+2026-02-08 12:58:01,096 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_vars.tmp_save
+2026-02-08 12:58:01,267 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_vars.tmp
+2026-02-08 12:58:01,283 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_pfp.tmp_save
+2026-02-08 12:58:01,440 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_pfp.tmp
+2026-02-08 12:58:01,448 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_obj_creat.tmp_save
+2026-02-08 12:58:01,742 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_obj_creat.tmp
+2026-02-08 12:58:01,810 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_default_thread.tmp_save
+2026-02-08 12:58:02,100 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_default_thread.tmp
+2026-02-08 12:58:02,141 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_threads.tmp_save
+2026-02-08 12:58:02,461 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_threads.tmp
+2026-02-08 12:58:02,504 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-02-08 12:58:02,524 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_inc.tmp_save
+2026-02-08 12:58:02,876 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_inc.tmp
+2026-02-08 12:58:02,896 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelInit.tmp_save
+2026-02-08 12:58:03,179 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelInit.tmp
+2026-02-08 12:58:03,205 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelStart.tmp_save
+2026-02-08 12:58:03,470 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelStart.tmp
+2026-02-08 12:58:03,485 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_typedefs.tmp_save
+2026-02-08 12:58:03,757 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_typedefs.tmp
+2026-02-08 12:58:03,774 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_vars.tmp_save
+2026-02-08 12:58:04,007 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_vars.tmp
+2026-02-08 12:58:04,025 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_pfp.tmp_save
+2026-02-08 12:58:04,261 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_pfp.tmp
+2026-02-08 12:58:04,280 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_obj_creat.tmp_save
+2026-02-08 12:58:04,523 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_obj_creat.tmp
+2026-02-08 12:58:04,540 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_default_thread.tmp_save
+2026-02-08 12:58:04,796 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_default_thread.tmp
+2026-02-08 12:58:04,818 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_threads.tmp_save
+2026-02-08 12:58:05,049 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_threads.tmp
+2026-02-08 12:58:05,067 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\FreeRTOSConfig.h_save
+2026-02-08 12:58:05,431 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\FreeRTOSConfig.h
+2026-02-08 12:58:05,454 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\freertos.c_save
+2026-02-08 12:58:05,734 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\freertos.c
+2026-02-08 12:58:05,789 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_it.c_save
+2026-02-08 12:58:06,576 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_it.c
+2026-02-08 12:58:06,602 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\stm32f4xx_it.h_save
+2026-02-08 12:58:06,842 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\stm32f4xx_it.h
+2026-02-08 12:58:06,907 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_hal_msp.c_save
+2026-02-08 12:58:07,349 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_hal_msp.c
+2026-02-08 12:58:07,365 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\system.tmp_save
+2026-02-08 12:58:07,584 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\system.tmp
+2026-02-08 12:58:07,599 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2026-02-08 12:58:07,858 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_hal_timebase_tim.c
+2026-02-08 12:58:07,892 [INFO] CodeEngine:321 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\stm32f4xx_hal_conf.h_save
+2026-02-08 12:58:08,174 [INFO] CodeEngine:345 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\stm32f4xx_hal_conf.h
+2026-02-08 12:58:08,257 [WARN] IPConfigManager:3238 - Warning: the RefConfig PLL2P_FOR_MCO is not available in your config.xml file
+2026-02-08 12:58:08,278 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-02-08 12:58:08,292 [WARN] CodeGenerator:4259 - IP not found : null
+2026-02-08 12:58:08,317 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\main.h_save
+2026-02-08 12:58:08,630 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\main.h
+2026-02-08 12:58:08,645 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\main.c_save
+2026-02-08 12:58:09,085 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\main.c
+2026-02-08 12:58:11,744 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 1967mS.
+2026-02-08 12:58:11,763 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-02-08 12:58:12,063 [INFO] ConfigFileManager:1595 - The Die is : DIE421
+2026-02-08 12:58:16,936 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 5174mS.
+2026-02-08 12:58:16,939 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 2mS.
+2026-02-08 12:58:16,970 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-02-08 12:59:47,561 [ERROR] RtosPanel:558 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2026-02-08 13:00:07,293 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 706617336 Bytes (1073741824)
+2026-02-08 13:00:08,797 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 733176632 Bytes (1073741824)
+2026-02-08 13:00:10,618 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 811819832 Bytes (1073741824)
+2026-02-08 13:00:11,093 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: FREERTOS
+2026-02-08 13:00:11,093 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8
+2026-02-08 13:00:11,093 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-02-08 13:00:11,093 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-02-08 13:00:11,093 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2026-02-08 13:00:11,093 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-02-08 13:00:11,093 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2026-02-08 13:00:11,094 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-02-08 13:00:11,095 [INFO] CodeGenerator:892 - code generatio: config db path: F:\Knowledge_Update\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2026-02-08 13:00:11,105 [WARN] IP:2250 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2026-02-08 13:00:11,106 [WARN] IP:2250 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2026-02-08 13:00:11,264 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\license.tmp_save
+2026-02-08 13:00:11,433 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\license.tmp
+2026-02-08 13:00:11,468 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\gpio.tmp_save
+2026-02-08 13:00:11,542 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\gpio.tmp
+2026-02-08 13:00:11,910 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-02-08 13:00:11,921 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_inc.tmp_save
+2026-02-08 13:00:12,030 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_inc.tmp
+2026-02-08 13:00:12,036 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelInit.tmp_save
+2026-02-08 13:00:12,137 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelInit.tmp
+2026-02-08 13:00:12,144 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelStart.tmp_save
+2026-02-08 13:00:12,234 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelStart.tmp
+2026-02-08 13:00:12,241 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_typedefs.tmp_save
+2026-02-08 13:00:12,324 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_typedefs.tmp
+2026-02-08 13:00:12,330 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_vars.tmp_save
+2026-02-08 13:00:12,448 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_vars.tmp
+2026-02-08 13:00:12,455 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_pfp.tmp_save
+2026-02-08 13:00:12,548 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_pfp.tmp
+2026-02-08 13:00:12,557 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_obj_creat.tmp_save
+2026-02-08 13:00:12,677 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_obj_creat.tmp
+2026-02-08 13:00:12,685 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_default_thread.tmp_save
+2026-02-08 13:00:12,799 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_default_thread.tmp
+2026-02-08 13:00:12,808 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_threads.tmp_save
+2026-02-08 13:00:12,943 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_threads.tmp
+2026-02-08 13:00:12,963 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-02-08 13:00:12,975 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_inc.tmp_save
+2026-02-08 13:00:13,068 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_inc.tmp
+2026-02-08 13:00:13,076 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelInit.tmp_save
+2026-02-08 13:00:13,176 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelInit.tmp
+2026-02-08 13:00:13,187 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelStart.tmp_save
+2026-02-08 13:00:13,333 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_kernelStart.tmp
+2026-02-08 13:00:13,346 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_typedefs.tmp_save
+2026-02-08 13:00:13,505 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_typedefs.tmp
+2026-02-08 13:00:13,519 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_vars.tmp_save
+2026-02-08 13:00:13,761 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_vars.tmp
+2026-02-08 13:00:13,779 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_pfp.tmp_save
+2026-02-08 13:00:14,027 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_pfp.tmp
+2026-02-08 13:00:14,043 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_obj_creat.tmp_save
+2026-02-08 13:00:14,336 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_obj_creat.tmp
+2026-02-08 13:00:14,351 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_default_thread.tmp_save
+2026-02-08 13:00:14,539 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_default_thread.tmp
+2026-02-08 13:00:14,553 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_threads.tmp_save
+2026-02-08 13:00:14,767 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\rtos_threads.tmp
+2026-02-08 13:00:14,809 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\FreeRTOSConfig.h_save
+2026-02-08 13:00:15,157 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\FreeRTOSConfig.h
+2026-02-08 13:00:15,173 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\freertos.c_save
+2026-02-08 13:00:15,392 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\freertos.c
+2026-02-08 13:00:15,427 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_it.c_save
+2026-02-08 13:00:15,659 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_it.c
+2026-02-08 13:00:15,671 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\stm32f4xx_it.h_save
+2026-02-08 13:00:15,833 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\stm32f4xx_it.h
+2026-02-08 13:00:15,872 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_hal_msp.c_save
+2026-02-08 13:00:16,247 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_hal_msp.c
+2026-02-08 13:00:16,256 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\system.tmp_save
+2026-02-08 13:00:16,651 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\MXTmpFiles\system.tmp
+2026-02-08 13:00:16,668 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2026-02-08 13:00:16,943 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\stm32f4xx_hal_timebase_tim.c
+2026-02-08 13:00:16,975 [INFO] CodeEngine:321 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\stm32f4xx_hal_conf.h_save
+2026-02-08 13:00:17,376 [INFO] CodeEngine:345 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\stm32f4xx_hal_conf.h
+2026-02-08 13:00:17,504 [WARN] IPConfigManager:3238 - Warning: the RefConfig PLL2P_FOR_MCO is not available in your config.xml file
+2026-02-08 13:00:17,600 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-02-08 13:00:17,624 [WARN] CodeGenerator:4259 - IP not found : null
+2026-02-08 13:00:17,668 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\main.h_save
+2026-02-08 13:00:20,252 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Inc\main.h
+2026-02-08 13:00:20,337 [INFO] CodeEngine:265 - oldGeneratedFile, F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\main.c_save
+2026-02-08 13:00:21,668 [INFO] CodeEngine:289 - Generated code: F:\Knowledge_Update\workspace_1.19.0\HAL\Orientation and LED Control with MPU6050 and STM32\Core\Src\main.c
+2026-02-08 13:00:26,770 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 2593mS.
+2026-02-08 13:00:26,782 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-02-08 13:00:27,065 [INFO] ConfigFileManager:1595 - The Die is : DIE421
+2026-02-08 13:00:29,762 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 2958mS.
+2026-02-08 13:00:29,787 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 19mS.
+2026-02-08 13:00:29,797 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-02-08 13:11:23,261 [INFO] WebApp:194 - Connection lost
+2026-02-08 13:11:24,210 [INFO] WebApp:191 - Connection restablished
