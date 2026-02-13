@@ -522,7 +522,6 @@ void pwm_control_task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  // Task wakes up on notification from the data g_accel_data
 	  accel_x = g_accel_data.x;
 	  accel_y = g_accel_data.y;
 	  accel_z = g_accel_data.z;

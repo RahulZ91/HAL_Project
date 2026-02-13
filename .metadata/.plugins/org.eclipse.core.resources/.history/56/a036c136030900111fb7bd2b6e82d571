@@ -102,6 +102,14 @@ void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+mpu_accelerometer_data_t g_accel_data;
+volatile int16_t accel_x, accel_y, accel_z=0;
+volatile float roll_angle;
+volatile int32_t roll_angle_cm;
+int16_t kalman_roll_angle;
+uint8_t channel;
+volatile float roll_angle_abs;
+uint32_t pwm_value;
 
 // Map function: re-maps a number from one range to another
 long map(long x, long in_min, long in_max, long out_min, long out_max) {
@@ -169,10 +177,11 @@ int main(void)
 	  while(1);
   }
   if(HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_2) != HAL_OK)
-  {
+    {
   	  while(1);
-  }
+    }
 
+ // uint32_t previous_tick=HAL_GetTick();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -224,12 +233,41 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+//	 uint32_t current_tick=HAL_GetTick();
+//	dt=(current_tick - previous_tick)/1000.0f;
+	//previous_tick=current_tick;
 
+	 if(mpu_read_accelerometer_data(&hi2c1, MPU6050_I2C_ADDR, &g_accel_data) != MPU6050_OK)
+	  	 {
+	  		 while(1);
+	  	  }
 
+	  g_accel_data=mpu6050_accelaration_calibration(&error_offset, &g_accel_data);
+	  	  accel_x = g_accel_data.x;
+	  	  accel_y = g_accel_data.y;
+	  	   accel_z = g_accel_data.z;
 
+	  	   roll_angle=((atan2f((float)accel_z, (float)accel_y) * 57.29578f));
+	  	   if(roll_angle<0)
+	  	   {
+	  		   channel=TIM_CHANNEL_1;
+	  		   roll_angle_abs=-roll_angle;
+	  	   }
+	  	   else
+	  	   {
+	  		   channel=TIM_CHANNEL_2;
+	  		   roll_angle_abs=roll_angle;
+	  	   }
+	  	   // Deadzone implementation
+	  	   if(roll_angle_abs < DEADZONE_DEG)
+	  	   {
+	  		 roll_angle_abs =0;
+	  	   }
+	  	   pwm_value=map(roll_angle_abs,ANGLE_POS_MIN,ANGLE_POS_MAX,PWM_PULSE_MIN,PWM_PULSE_MAX);
+	  	__DMB();
+	  	 HAL_Delay(100);
 
-
-
+	  	 update_pwm_duty_cycle(pwm_value,channel);
 
   }
   /* USER CODE END 3 */
@@ -484,20 +522,10 @@ void StartDefaultTask(void *argument)
 void sensor_read_task(void *argument)
 {
   /* USER CODE BEGIN sensor_read_task */
-	mpu_accelerometer_data_t g_accel_data;
   /* Infinite loop */
   for(;;)
   {
-	  if(mpu_read_accelerometer_data(&hi2c1, MPU6050_I2C_ADDR, &g_accel_data) != MPU6050_OK)
-	  {
-	  	 while(1);
-	  }
-      g_accel_data=mpu6050_accelaration_calibration(&error_offset, &g_accel_data);
-
-      // Send notification to the pwm_control_task
-
-      // Enter blocked state
-
+    osDelay(1);
   }
   /* USER CODE END sensor_read_task */
 }
@@ -512,41 +540,10 @@ void sensor_read_task(void *argument)
 void pwm_control_task(void *argument)
 {
   /* USER CODE BEGIN pwm_control_task */
-  volatile int16_t accel_x, accel_y, accel_z=0;
-  volatile float roll_angle;
-  volatile int32_t roll_angle_cm;
-  uint8_t channel;
-  volatile float roll_angle_abs;
-  uint32_t pwm_value;
-
   /* Infinite loop */
   for(;;)
   {
-	  // Task wakes up on notification from the data g_accel_data
-	  accel_x = g_accel_data.x;
-	  accel_y = g_accel_data.y;
-	  accel_z = g_accel_data.z;
-
-	  roll_angle=((atan2f((float)accel_z, (float)accel_y) * 57.29578f));
-	  if(roll_angle<0)
-	  {
-	  	  channel=TIM_CHANNEL_1;
-	  	  roll_angle_abs=-roll_angle;
-	  }
-	  else
-	  {
-	  	  channel=TIM_CHANNEL_2;
-	  	  roll_angle_abs=roll_angle;
-	  }
-	  // Deadzone implementation
-	  if(roll_angle_abs < DEADZONE_DEG)
-	  {
-	  	  roll_angle_abs =0;
-	  }
-	  pwm_value=map(roll_angle_abs,ANGLE_POS_MIN,ANGLE_POS_MAX,PWM_PULSE_MIN,PWM_PULSE_MAX);
-	  __DMB();
-	  HAL_Delay(100);
-	  update_pwm_duty_cycle(pwm_value,channel);
+    osDelay(1);
   }
   /* USER CODE END pwm_control_task */
 }
