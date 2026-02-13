@@ -62,6 +62,20 @@ const osThreadAttr_t defaultTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for SensorReadTask_ */
+osThreadId_t SensorReadTask_Handle;
+const osThreadAttr_t SensorReadTask__attributes = {
+  .name = "SensorReadTask_",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for PWMControlTask_ */
+osThreadId_t PWMControlTask_Handle;
+const osThreadAttr_t PWMControlTask__attributes = {
+  .name = "PWMControlTask_",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* USER CODE BEGIN PV */
 const mpu_accelerometer_data_t error_offset={
 		.x=250,
@@ -77,6 +91,8 @@ static void MX_USART2_UART_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM2_Init(void);
 void StartDefaultTask(void *argument);
+void sensor_read_task(void *argument);
+void pwm_control_task(void *argument);
 
 /* USER CODE BEGIN PFP */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
@@ -192,6 +208,12 @@ int main(void)
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+  /* creation of SensorReadTask_ */
+  SensorReadTask_Handle = osThreadNew(sensor_read_task, NULL, &SensorReadTask__attributes);
+
+  /* creation of PWMControlTask_ */
+  PWMControlTask_Handle = osThreadNew(pwm_control_task, NULL, &PWMControlTask__attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -470,27 +492,7 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
-
-
-/**
-  * @brief  PWM Pulse finished callback in non-blocking mode
-  * @param  htim TIM handle
-  * @retval None
-  */
-void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
-{
-
-}
-
-/**
-  * @brief  Timer error callback in non-blocking mode
-  * @param  htim TIM handle
-  * @retval None
-  */
-void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim)
-{
-
-}
+/* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
 
@@ -510,6 +512,42 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END 5 */
+}
+
+/* USER CODE BEGIN Header_sensor_read_task */
+/**
+* @brief Function implementing the SensorReadTask_ thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_sensor_read_task */
+void sensor_read_task(void *argument)
+{
+  /* USER CODE BEGIN sensor_read_task */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END sensor_read_task */
+}
+
+/* USER CODE BEGIN Header_pwm_control_task */
+/**
+* @brief Function implementing the PWMControlTask_ thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_pwm_control_task */
+void pwm_control_task(void *argument)
+{
+  /* USER CODE BEGIN pwm_control_task */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END pwm_control_task */
 }
 
 /**
