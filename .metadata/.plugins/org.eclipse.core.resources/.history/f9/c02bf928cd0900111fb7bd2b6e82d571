@@ -485,11 +485,6 @@ void sensor_read_task(void *argument)
 {
   /* USER CODE BEGIN sensor_read_task */
 	mpu_accelerometer_data_t g_accel_data;
-
-	// This is for the task notify
-	// basically created a holder of 32 bit holding the data of y and z; data of y starts MSB and LSB is the ending of data of z
-	uint32_t accel_data_roll_angle=g_accel_data.y;
-	accel_data_roll_angle= (accel_data_roll_angle<<16) | g_accel_data.z;
   /* Infinite loop */
   for(;;)
   {
@@ -500,7 +495,7 @@ void sensor_read_task(void *argument)
       g_accel_data=mpu6050_accelaration_calibration(&error_offset, &g_accel_data);
 
       // Send notification to the pwm_control_task
-      xTaskNotify(PWMControlTask_Handle,);
+
       // Enter blocked state
 
   }
@@ -553,10 +548,6 @@ void pwm_control_task(void *argument)
 	  __DMB();
 	  HAL_Delay(100);
 	  update_pwm_duty_cycle(pwm_value,channel);
-
-	  //Send notification
-
-	  //Enter blocked state
   }
   /* USER CODE END pwm_control_task */
 }
