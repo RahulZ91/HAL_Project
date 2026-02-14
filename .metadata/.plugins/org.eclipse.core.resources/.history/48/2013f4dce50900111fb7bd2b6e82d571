@@ -489,7 +489,7 @@ void sensor_read_task(void *argument)
 	// This is for the task notify
 	// basically created a holder of 32 bit holding the data of y and z; data of y starts MSB and LSB is the ending of data of z
 	uint32_t accel_data_roll_angle=g_accel_data.y;
-
+	accel_data_roll_angle= (accel_data_roll_angle<<16) | g_accel_data.z;
   /* Infinite loop */
   for(;;)
   {
@@ -498,13 +498,10 @@ void sensor_read_task(void *argument)
 	  	 while(1);
 	  }
       g_accel_data=mpu6050_accelaration_calibration(&error_offset, &g_accel_data);
-      accel_data_roll_angle= (accel_data_roll_angle<<16) | g_accel_data.z;
 
       // Send notification to the pwm_control_task
-      xTaskNotify(PWMControlTask_Handle,accel_data_roll_angle,eSetValueWithOverwrite);
-
-      // Enter blocked state until ISR notifies the task sensor_read_task
-      xTaskNotifyWait(0, 0, NULL, portMAX_DELAY); // no reading changed on entry to function or exit from function on notification
+      xTaskNotify(PWMControlTask_Handle,);
+      // Enter blocked state
 
   }
   /* USER CODE END sensor_read_task */
@@ -521,23 +518,20 @@ void pwm_control_task(void *argument)
 {
   /* USER CODE BEGIN pwm_control_task */
   mpu_accelerometer_data_t g_accel_data;
-  volatile int16_t accel_x=0, accel_y=0, accel_z=0;
+  volatile int16_t accel_x, accel_y, accel_z=0;
   volatile float roll_angle;
   //volatile int32_t roll_angle_cm;
   uint8_t channel;
   volatile float roll_angle_abs;
   uint32_t pwm_value;
-  uint32_t accel_data_roll_angle;
 
   /* Infinite loop */
   for(;;)
   {
-	  // Task wakes up on notification from the sensor read task
-	  // Enters blocked state till notification from above task
-	  xTaskNotifyWait(0, 0xFFFF, &accel_data_roll_angle, portMAX_DELAY);
-	 // accel_x = g_accel_data.x;
-	  accel_y = (uint16_t)accel_data_roll_angle & 0xFFFF;
-	  accel_z = (uint16_t)(accel_data_roll_angle >> 16) & 0xFFFF;
+	  // Task wakes up on notification from the data g_accel_data
+	  accel_x = g_accel_data.x;
+	  accel_y = g_accel_data.y;
+	  accel_z = g_accel_data.z;
 
 	  roll_angle=((atan2f((float)accel_z, (float)accel_y) * 57.29578f));
 	  if(roll_angle<0)

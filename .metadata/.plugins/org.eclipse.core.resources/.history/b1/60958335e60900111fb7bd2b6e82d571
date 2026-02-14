@@ -521,7 +521,7 @@ void pwm_control_task(void *argument)
 {
   /* USER CODE BEGIN pwm_control_task */
   mpu_accelerometer_data_t g_accel_data;
-  volatile int16_t accel_x=0, accel_y=0, accel_z=0;
+  volatile int16_t accel_x, accel_y, accel_z=0;
   volatile float roll_angle;
   //volatile int32_t roll_angle_cm;
   uint8_t channel;
@@ -535,7 +535,7 @@ void pwm_control_task(void *argument)
 	  // Task wakes up on notification from the sensor read task
 	  // Enters blocked state till notification from above task
 	  xTaskNotifyWait(0, 0xFFFF, &accel_data_roll_angle, portMAX_DELAY);
-	 // accel_x = g_accel_data.x;
+	  accel_x = g_accel_data.x;
 	  accel_y = (uint16_t)accel_data_roll_angle & 0xFFFF;
 	  accel_z = (uint16_t)(accel_data_roll_angle >> 16) & 0xFFFF;
 

@@ -329,3 +329,25 @@ java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()"
 2026-02-14 16:57:17,438 [INFO] TasksAndQueuesTab:757 - Dynamic
 2026-02-14 16:57:17,438 [WARN] TasksAndQueuesTab:763 - 128 128
 2026-02-14 16:57:17,439 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2026-02-14 17:09:48,760 [INFO] WebApp:194 - Connection lost
+2026-02-14 17:09:49,393 [INFO] WebApp:191 - Connection restablished
+2026-02-14 17:10:20,987 [INFO] WebApp:194 - Connection lost
+2026-02-14 17:10:21,190 [INFO] WebApp:191 - Connection restablished
+2026-02-14 17:11:06,775 [INFO] WebApp:194 - Connection lost
+2026-02-14 17:11:07,818 [INFO] WebApp:191 - Connection restablished
+2026-02-14 17:13:57,976 [INFO] WebApp:194 - Connection lost
+2026-02-14 17:13:58,195 [INFO] WebApp:191 - Connection restablished
+2026-02-14 17:14:30,945 [INFO] WebApp:194 - Connection lost
+2026-02-14 17:14:31,112 [INFO] WebApp:191 - Connection restablished
+2026-02-14 18:21:37,333 [INFO] WebApp:194 - Connection lost
+2026-02-14 18:21:38,338 [INFO] WebApp:191 - Connection restablished
+2026-02-14 18:21:39,055 [INFO] WebApp:194 - Connection lost
+2026-02-14 18:21:39,365 [INFO] WebApp:191 - Connection restablished
+2026-02-14 18:21:44,517 [INFO] WebApp:194 - Connection lost
+2026-02-14 18:21:44,672 [INFO] WebApp:191 - Connection restablished
+2026-02-14 18:39:41,545 [INFO] WebApp:194 - Connection lost
+2026-02-14 18:39:42,650 [INFO] WebApp:191 - Connection restablished
+2026-02-14 21:21:08,518 [INFO] WebApp:194 - Connection lost
+2026-02-14 21:21:11,117 [INFO] WebApp:191 - Connection restablished
+2026-02-14 21:35:16,102 [INFO] WebApp:194 - Connection lost
+2026-02-14 21:35:17,324 [INFO] WebApp:191 - Connection restablished

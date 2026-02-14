@@ -8,6 +8,6 @@
 ../Core/Src/main.c:421:13:MX_GPIO_Init	1
 ../Core/Src/main.c:466:6:StartDefaultTask	1
 ../Core/Src/main.c:484:6:sensor_read_task	2
-../Core/Src/main.c:512:6:pwm_control_task	3
-../Core/Src/main.c:563:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/main.c:581:6:Error_Handler	1
+../Core/Src/main.c:520:6:pwm_control_task	3
+../Core/Src/main.c:578:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:596:6:Error_Handler	1
